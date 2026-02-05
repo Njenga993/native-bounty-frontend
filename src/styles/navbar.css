@@ -1,0 +1,135 @@
+/* ================================
+   Native Bounty – Navbar Styles
+   ================================ */
+
+.nb-navbar {
+  width: 100%;
+  background-color: #0f3d2e; /* Agricultural green */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Container */
+.nb-navbar__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 1.8rem; /* neutral height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================================
+   Logo
+   ================================ */
+
+.nb-navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.nb-navbar__logo img {
+  height: 44px;
+  width: auto;
+}
+
+/* ================================
+   Desktop Navigation Links
+   ================================ */
+
+.nb-navbar__links {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nb-navbar__links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+}
+
+/* Active Link */
+.nb-navbar__links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: #f4c430; /* Harvest gold */
+}
+
+/* Hover */
+.nb-navbar__links a:hover {
+  color: #f4c430;
+}
+
+/* ================================
+   Hamburger Button (Mobile)
+   ================================ */
+
+.nb-navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nb-navbar__hamburger span {
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  display: block;
+}
+
+/* ================================
+   Mobile Menu
+   ================================ */
+
+.nb-navbar__mobile {
+  display: flex;
+  flex-direction: column;
+  background-color: #0f3d2e;
+  padding: 1rem 1.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nb-navbar__mobile a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.9rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nb-navbar__mobile a.active {
+  color: #f4c430;
+}
+
+.nb-navbar__mobile a:hover {
+  color: #f4c430;
+}
+
+/* ================================
+   Responsive Rules
+   ================================ */
+
+@media (max-width: 768px) {
+  .nb-navbar__links {
+    display: none;
+  }
+
+  .nb-navbar__hamburger {
+    display: flex;
+  }
+}
