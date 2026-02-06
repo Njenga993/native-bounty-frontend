@@ -9,7 +9,7 @@ const App = () => {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/native-bounty-frontend" element={<Home/>} />
         <Route path="/about" element={<div>About</div>} />
         <Route path="/services" element={<div>Services</div>} />
         <Route path="/network" element={<div>Network</div>} />
