@@ -1,30 +1,26 @@
+import Hero from "../components/Hero";
 import "../styles/home.css";
+// Other components will be added later
+import About from "../components/About";
+// import Features from "../components/Features";
+// import HowItWorks from "../components/HowItWorks";
+// import Stats from "../components/Stats";
+// import Testimonials from "../components/Testimonials";
+// import CTA from "../components/CTA";
+// import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <main className="nb-home">
-      {/* Hero Section */}
-      <section className="nb-home__hero">
-        <div className="nb-home__hero-content">
-          <h1>From Farm to Market, Seamlessly</h1>
-          <p>
-            Native Bounty is building a reliable logistics network that connects
-            farmers to markets through efficient, transparent, and sustainable
-            produce movement.
-          </p>
-          <button>Learn More</button>
-        </div>
-      </section>
-
-      {/* Intro Section */}
-      <section className="nb-home__intro">
-        <h2>Why Native Bounty?</h2>
-        <p>
-          Smallholder farmers lose value due to inefficient supply chains.
-          Native Bounty bridges that gap by offering tailored logistics solutions
-          designed specifically for agricultural produce.
-        </p>
-      </section>
+    <main>
+      <Hero />
+      {/* Other components will go here as we build them */}
+      <About />
+      {/*<Features />
+      <HowItWorks />
+      <Stats />
+      <Testimonials />
+      <CTA />
+      <Footer /> */}
     </main>
   );
 };

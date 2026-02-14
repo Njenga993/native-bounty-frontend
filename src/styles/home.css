@@ -1,67 +1,11 @@
 .nb-home {
-  min-height: calc(100vh - 160px); /* pushes footer down */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  width: 100%;
 }
 
-/* Hero */
-.nb-home__hero {
-  background: linear-gradient(
-      rgba(15, 61, 46, 0.75),
-      rgba(15, 61, 46, 0.75)
-    ),
-    url("/hero.jpg"); /* placeholder, optional */
-  background-size: cover;
-  background-position: center;
-
-  color: #ffffff;
-  padding: 6rem 1.5rem;
-}
-
-.nb-home__hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.nb-home__hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.nb-home__hero p {
-  font-size: 1.05rem;
-  margin-bottom: 2rem;
-  line-height: 1.7;
-}
-
-.nb-home__hero button {
-  background-color: #f4c430;
-  color: #0f3d2e;
-  border: none;
-  padding: 0.8rem 1.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.nb-home__hero button:hover {
-  opacity: 0.9;
-}
-
-/* Intro */
-.nb-home__intro {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 0 1.5rem;
-  text-align: center;
-}
-
-.nb-home__intro h2 {
-  color: #0f3d2e;
-  margin-bottom: 1rem;
-}
-
-.nb-home__intro p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #333333;
-}
+/* Remove any existing styles for now */
