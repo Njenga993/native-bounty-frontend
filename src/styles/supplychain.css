@@ -1,0 +1,119 @@
+/* ===============================
+   Native Bounty - Supply Chain
+   Unique Prefix: nb-sc-
+================================== */
+
+.nb-sc-section {
+  padding: 100px 20px;
+  background: #f4f7f4;
+}
+
+.nb-sc-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nb-sc-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.nb-sc-header h2 {
+  font-size: 2.5rem;
+  color: #1f3d2b;
+  margin-bottom: 15px;
+}
+
+.nb-sc-header p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.nb-sc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  position: relative;
+}
+
+/* Card */
+.nb-sc-card {
+  background: white;
+  padding: 40px 25px;
+  border-radius: 18px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid #e8e8e8;
+}
+
+.nb-sc-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+  border-color: #1f7a3d;
+}
+
+.nb-sc-number {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f7a3d;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.nb-sc-icon {
+  color: #1f7a3d;
+  margin: 20px 0;
+}
+
+.nb-sc-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #1f3d2b;
+}
+
+.nb-sc-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ===============================
+   Responsive
+================================== */
+
+@media (max-width: 1024px) {
+  .nb-sc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .nb-sc-section {
+    padding: 70px 15px;
+  }
+
+  .nb-sc-header h2 {
+    font-size: 2rem;
+  }
+
+  .nb-sc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nb-sc-card {
+    padding: 35px 20px;
+  }
+}

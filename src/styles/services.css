@@ -1,0 +1,153 @@
+/* ===============================
+   Native Bounty - Services Section
+   Unique Prefix: nb-
+================================== */
+
+.nb-services-section {
+  padding: 100px 20px;
+  background-color: #ffffff;
+}
+
+.nb-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nb-services-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.nb-services-header h2 {
+  font-size: 2.5rem;
+  color: #1f3d2b;
+  margin-bottom: 15px;
+}
+
+.nb-services-header p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.nb-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+/* Service Card */
+.nb-service-card {
+  background: #f9f9f9;
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.nb-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #1f3d2b;
+}
+
+.nb-service-icon {
+  color: #1f7a3d;
+  margin-bottom: 20px;
+}
+
+.nb-service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #1f3d2b;
+}
+
+.nb-service-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.nb-services-cta {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid #eaeaea;
+}
+
+.nb-services-cta h4 {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+  color: #1f3d2b;
+}
+
+.nb-services-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nb-btn-primary {
+  background-color: #1f7a3d;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.nb-btn-primary:hover {
+  background-color: #145c2d;
+}
+
+.nb-btn-outline {
+  background: transparent;
+  border: 2px solid #1f7a3d;
+  color: #1f7a3d;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.nb-btn-outline:hover {
+  background-color: #1f7a3d;
+  color: white;
+}
+
+/* ===============================
+   Responsive
+================================== */
+
+@media (max-width: 992px) {
+  .nb-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .nb-services-section {
+    padding: 70px 15px;
+  }
+
+  .nb-services-header h2 {
+    font-size: 2rem;
+  }
+
+  .nb-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nb-service-card {
+    padding: 30px 20px;
+  }
+}

@@ -1,0 +1,96 @@
+/* ===============================
+   Native Bounty - Impact & Metrics
+   Unique Prefix: nb-im-
+================================== */
+
+.nb-im-section {
+  padding: 100px 20px;
+  background:  #1f3d2b;
+  color: white;
+}
+
+.nb-im-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nb-im-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.nb-im-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.nb-im-header p {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Grid */
+.nb-im-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Card */
+.nb-im-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px 20px;
+  border-radius: 18px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.nb-im-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nb-im-icon {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.nb-im-card h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.nb-im-card p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .nb-im-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .nb-im-section {
+    padding: 70px 15px;
+  }
+
+  .nb-im-header h2 {
+    font-size: 2rem;
+  }
+
+  .nb-im-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nb-im-card h3 {
+    font-size: 1.7rem;
+  }
+}
