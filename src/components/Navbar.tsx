@@ -17,7 +17,7 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <nav className="nb-navbar__links">
-          <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/native-bounty-frontend" end>Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/services">Services</NavLink>
           <NavLink to="/network">Network</NavLink>

@@ -1,0 +1,391 @@
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.nb-about {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+}
+
+.nb-about__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.nb-about__header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 5rem auto;
+}
+
+.nb-about__header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #0f3d2e;
+}
+
+.nb-about__header p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Mission Section */
+.nb-about__mission {
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.nb-about__mission h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #0f3d2e;
+}
+
+.nb-about__mission-content {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.nb-about__mission-block {
+  flex: 1;
+  max-width: 500px;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.nb-about__mission-block h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #0f3d2e;
+}
+
+.nb-about__mission-block p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Rows */
+.nb-about__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.nb-about__row--reverse {
+  direction: rtl;
+}
+
+.nb-about__row--reverse .nb-about__content {
+  direction: ltr;
+}
+
+/* Image */
+.nb-about__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Content */
+.nb-about__content h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #0f3d2e;
+}
+
+.nb-about__content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  color: #555;
+}
+
+/* Story Section */
+.nb-about__story {
+  max-width: 800px;
+  margin: 0 auto 6rem auto;
+  text-align: center;
+}
+
+.nb-about__story h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #0f3d2e;
+}
+
+.nb-about__story p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Values Section */
+.nb-about__values {
+  margin-bottom: 6rem;
+}
+
+.nb-about__values h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #0f3d2e;
+}
+
+.nb-about__values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.nb-about__value-card {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.nb-about__value-card h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #0f3d2e;
+}
+
+.nb-about__value-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Team Section */
+.nb-about__team {
+  margin-bottom: 6rem;
+}
+
+.nb-about__team h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #0f3d2e;
+}
+
+.nb-about__team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.nb-about__team-member {
+  text-align: center;
+}
+
+.nb-about__team-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.nb-about__team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nb-about__team-member h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #0f3d2e;
+}
+
+.nb-about__team-member p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.nb-about__team-member p:last-of-type {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Impact Section */
+.nb-about__impact {
+  margin-bottom: 6rem;
+}
+
+.nb-about__impact h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #0f3d2e;
+}
+
+.nb-about__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.nb-about__stat {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.nb-about__stat h4 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #0f3d2e;
+}
+
+.nb-about__stat p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Partners Section */
+.nb-about__partners {
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.nb-about__partners h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #0f3d2e;
+}
+
+.nb-about__partners p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.nb-about__partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.nb-about__partner-logo {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: #666;
+  font-weight: 600;
+}
+
+/* CTA Section */
+.nb-about__cta {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.nb-about__cta h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #0f3d2e;
+}
+
+.nb-about__cta p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.nb-about__cta-button {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #0f3d2e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nb-about__cta-button:hover {
+  background-color: #0a2d22;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nb-about__row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .nb-about__row--reverse {
+    direction: ltr;
+  }
+
+  .nb-about__mission-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .nb-about__values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nb-about__team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nb-about__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .nb-about__partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nb-about {
+    padding: 4rem 1.5rem;
+  }
+
+  .nb-about__header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .nb-about__partners-grid {
+    grid-template-columns: 1fr;
+  }
+}

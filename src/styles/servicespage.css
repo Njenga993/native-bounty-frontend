@@ -1,0 +1,554 @@
+/* ===============================
+   Native Bounty - Services Page
+   Unique Prefix: ns-
+================================== */
+
+.ns-services-page {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.ns-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.ns-services-hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.ns-services-hero h1 {
+  font-size: 2.8rem;
+  color: #1f3d2b;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.ns-services-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Service Categories */
+.ns-service-categories {
+  margin-bottom: 50px;
+}
+
+.ns-category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.ns-category-tab {
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.ns-category-tab.active {
+  background-color: #1f7a3d;
+  color: white;
+}
+
+.ns-category-tab:hover:not(.active) {
+  background-color: #eaeaea;
+}
+
+/* Services Grid */
+.ns-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.ns-service-card {
+  background: #f9f9f9;
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.ns-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #1f3d2b;
+}
+
+.ns-service-icon {
+  color: #1f7a3d;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ns-service-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #1f3d2b;
+  font-weight: 600;
+}
+
+.ns-service-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.ns-service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+  text-align: left;
+}
+
+.ns-service-features li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.ns-service-features li svg {
+  color: #1f7a3d;
+  margin-right: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ns-learn-more-btn {
+  background: transparent;
+  border: 1px solid #1f7a3d;
+  color: #1f7a3d;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.ns-learn-more-btn:hover {
+  background-color: #1f7a3d;
+  color: white;
+}
+
+/* Section Headers */
+.ns-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.ns-section-header h2 {
+  font-size: 2.2rem;
+  color: #1f3d2b;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.ns-section-header p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Process Section */
+.ns-process-section {
+  margin-bottom: 80px;
+  background-color: #f5f9f7;
+  padding: 60px 40px;
+  border-radius: 16px;
+}
+
+.ns-process-flow {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 40px;
+}
+
+.ns-process-step {
+  position: relative;
+  z-index: 2;
+  width: 180px;
+  text-align: center;
+}
+
+.ns-step-number {
+  width: 50px;
+  height: 50px;
+  background-color: #1f7a3d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+
+.ns-process-step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #1f3d2b;
+  font-weight: 600;
+}
+
+.ns-process-step p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.ns-step-connector {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #1f7a3d;
+  z-index: 1;
+}
+
+/* Benefits Section */
+.ns-benefits-section {
+  margin-bottom: 80px;
+}
+
+.ns-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.ns-benefit-card {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.ns-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.ns-benefit-icon {
+  color: #1f7a3d;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ns-benefit-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #1f3d2b;
+  font-weight: 600;
+}
+
+.ns-benefit-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Case Studies Section */
+.ns-case-studies {
+  margin-bottom: 80px;
+}
+
+.ns-case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.ns-case-study {
+  background: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ns-case-study-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.ns-case-study-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ns-case-study:hover .ns-case-study-image img {
+  transform: scale(1.05);
+}
+
+.ns-case-study-content {
+  padding: 30px;
+}
+
+.ns-case-study h3 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: #1f3d2b;
+  font-weight: 600;
+}
+
+.ns-case-study-subtitle {
+  color: #1f7a3d;
+  font-weight: 500;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.ns-case-study p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.ns-case-study-metrics {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ns-metric {
+  text-align: center;
+}
+
+.ns-metric-value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f7a3d;
+}
+
+.ns-metric-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* FAQ Section */
+.ns-faq-section {
+  margin-bottom: 80px;
+}
+
+.ns-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ns-faq-item {
+  margin-bottom: 15px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ns-faq-question {
+  width: 100%;
+  background: #f9f9f9;
+  border: none;
+  padding: 20px;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f3d2b;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.ns-faq-question:hover {
+  background-color: #f0f0f0;
+}
+
+.ns-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: white;
+}
+
+.ns-faq-answer.expanded {
+  max-height: 200px;
+}
+
+.ns-faq-answer p {
+  padding: 0 20px 20px;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.ns-services-cta {
+  background-color: #1f3d2b;
+  color: white;
+  padding: 60px 40px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.ns-cta-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.ns-cta-content p {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.ns-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.ns-btn-primary {
+  background-color: #1f7a3d;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.ns-btn-primary:hover {
+  background-color: #145c2d;
+}
+
+.ns-btn-outline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.ns-btn-outline:hover {
+  background-color: white;
+  color: #1f3d2b;
+}
+
+.ns-contact-info {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.ns-contact-info a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ns-contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .ns-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ns-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ns-case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ns-process-flow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .ns-step-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .ns-services-page {
+    padding: 60px 15px;
+  }
+  
+  .ns-services-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .ns-services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ns-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ns-process-section {
+    padding: 40px 20px;
+  }
+  
+  .ns-case-study-metrics {
+    justify-content: space-around;
+  }
+  
+  .ns-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ns-cta-buttons button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
