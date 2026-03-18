@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,700&family=Outfit:wght@500;600&display=swap');
+
+/* ============================================
+   TOKENS  (inherit from your global :root
+   if already defined — kept here for portability)
+============================================ */
+:root {
+  --btt-forest:       #152E1E;
+  --btt-forest-mid:   #1F4A2E;
+  --btt-amber:        #D4920A;
+  --btt-amber-light:  #F5C842;
+  --btt-white:        #FFFFFF;
+}
+
+/* ============================================
+   BUTTON
+============================================ */
+.btt {
+  /* Position — fixed bottom-right, above footer */
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2rem;
+  z-index: 800;
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  /* Sizing & shape — sharp rectangle, no radius */
+  padding: 0.7rem 1.1rem 0.7rem 1.3rem;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+
+  /* Colour */
+  background: var(--btt-forest);
+  color: var(--btt-white);
+
+  /* Typography */
+  font-family: 'Outfit', sans-serif;
+
+  /* Entry: hidden by default */
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition:
+    opacity    0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform  0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease;
+
+  /* Relative so the progress bar can anchor */
+  overflow: hidden;
+}
+
+/* ── Visible state ── */
+.btt--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* ── Hover ── */
+.btt:hover {
+  background: var(--btt-amber);
+}
+
+.btt:hover .btt__progress {
+  background: var(--btt-forest);
+}
+
+/* ── Focus ring (accessibility) ── */
+.btt:focus-visible {
+  outline: 2px solid var(--btt-amber-light);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   SCROLL PROGRESS BAR
+   — thin amber bar on the left edge,
+     fills vertically as user scrolls
+============================================ */
+.btt__progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;           /* grows from bottom up */
+  width: 3px;
+  background: var(--btt-amber);
+  transition: height 0.1s linear, background 0.2s;
+  /* height is set inline via React state */
+}
+
+/* ============================================
+   ARROW ICON
+============================================ */
+.btt__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btt:hover .btt__arrow {
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   LABEL
+============================================ */
+.btt__label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   — on mobile, shrink and move slightly in
+============================================ */
+@media (max-width: 600px) {
+  .btt {
+    bottom: 1.5rem;
+    right: 1.2rem;
+    padding: 0.6rem 0.9rem 0.6rem 1.1rem;
+  }
+
+  .btt__label {
+    font-size: 0.72rem;
+  }
+}
