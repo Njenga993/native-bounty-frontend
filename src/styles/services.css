@@ -1,153 +1,391 @@
-/* ===============================
-   Native Bounty - Services Section
-   Unique Prefix: nb-
-================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,900&family=Outfit:wght@300;400;500;600&display=swap');
 
-.nb-services-section {
-  padding: 100px 20px;
-  background-color: #ffffff;
+/* ============================================
+   TOKENS
+============================================ */
+:root {
+  --forest:       #152E1E;
+  --forest-mid:   #1F4A2E;
+  --amber:        #D4920A;
+  --amber-light:  #F5C842;
+  --cream:        #F7F3EB;
+  --white:        #FFFFFF;
+  --stone:        #6B6455;
+  --rule:         #DDD8CC;
+  --charcoal:     #1C1C1A;
 }
 
-.nb-services-container {
-  max-width: 1200px;
+/* ============================================
+   SCROLL REVEAL
+============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   SECTION SHELL
+============================================ */
+.nb-services {
+  background: var(--cream);
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+}
+
+/* ============================================
+   INTRO PANEL
+============================================ */
+.nb-services__intro {
+  padding: 7rem 4vw 4rem;
+}
+
+.nb-services__intro-inner {
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.nb-services-header {
-  text-align: center;
-  margin-bottom: 60px;
+.nb-services__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 1.6rem;
 }
 
-.nb-services-header h2 {
-  font-size: 2.5rem;
-  color: #1f3d2b;
-  margin-bottom: 15px;
+.nb-services__eyebrow-line {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: var(--amber);
+  flex-shrink: 0;
 }
 
-.nb-services-header p {
-  max-width: 650px;
+.nb-services__heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--forest);
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.02em;
+  max-width: 640px;
+}
+
+.nb-services__heading em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.nb-services__lead {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--stone);
+  font-weight: 300;
+  max-width: 520px;
+}
+
+/* ============================================
+   SERVICE ROWS LIST
+============================================ */
+.nb-services__list {
+  max-width: 1100px;
   margin: 0 auto;
-  color: #555;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  padding: 0 4vw 2rem;
+  border-top: 1px solid var(--rule);
 }
 
-/* Grid Layout */
-.nb-services-grid {
+/* ── Single Row ── */
+.nb-service-row {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 80px;
+  grid-template-columns: 90px 1fr auto auto;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.4rem 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  cursor: default;
+  overflow: hidden;
+  transition: background 0.35s ease, border-color 0.35s ease;
 }
 
-/* Service Card */
-.nb-service-card {
-  background: #f9f9f9;
-  padding: 40px 30px;
-  border-radius: 16px;
-  text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+.nb-service-row:hover {
+  background: var(--forest);
+  border-color: transparent;
 }
 
-.nb-service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid #1f3d2b;
+/* Ghost number behind everything */
+.nb-service-row__ghost {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Fraunces', serif;
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(0,0,0,0.04);
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.35s ease;
 }
 
-.nb-service-icon {
-  color: #1f7a3d;
-  margin-bottom: 20px;
+.nb-service-row:hover .nb-service-row__ghost {
+  color: rgba(255,255,255,0.04);
 }
 
-.nb-service-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: #1f3d2b;
-}
-
-.nb-service-card p {
-  font-size: 0.95rem;
-  color: #666;
-  line-height: 1.6;
-}
-
-/* CTA Section */
-.nb-services-cta {
-  text-align: center;
-  padding-top: 40px;
-  border-top: 1px solid #eaeaea;
-}
-
-.nb-services-cta h4 {
-  font-size: 1.4rem;
-  margin-bottom: 25px;
-  color: #1f3d2b;
-}
-
-.nb-services-buttons {
+/* Index — small number + icon */
+.nb-service-row__index {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.nb-service-row__num {
+  font-family: 'Fraunces', serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--amber);
+  letter-spacing: 0.05em;
+  transition: color 0.35s ease;
+}
+
+.nb-service-row:hover .nb-service-row__num {
+  color: var(--amber-light);
+}
+
+.nb-service-row__icon {
+  color: var(--forest-mid);
+  display: flex;
+  align-items: center;
+  transition: color 0.35s ease;
+}
+
+.nb-service-row:hover .nb-service-row__icon {
+  color: var(--amber-light);
+}
+
+/* Content */
+.nb-service-row__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.nb-service-row__title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 0.45rem;
+  letter-spacing: -0.01em;
+  transition: color 0.35s ease;
+}
+
+.nb-service-row:hover .nb-service-row__title {
+  color: var(--white);
+}
+
+.nb-service-row__desc {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--stone);
+  font-weight: 300;
+  max-width: 560px;
+  transition: color 0.35s ease;
+}
+
+.nb-service-row:hover .nb-service-row__desc {
+  color: rgba(255,255,255,0.62);
+}
+
+/* Tag pill */
+.nb-service-row__tag {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.9rem;
+  white-space: nowrap;
+  transition: color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.nb-service-row:hover .nb-service-row__tag {
+  color: var(--forest);
+  background: var(--amber-light);
+  border-color: var(--amber-light);
+}
+
+/* Arrow */
+.nb-service-row__arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: var(--rule);
+  transition: color 0.35s ease, transform 0.3s ease;
+}
+
+.nb-service-row:hover .nb-service-row__arrow {
+  color: var(--amber-light);
+  transform: translateX(4px);
+}
+
+/* ============================================
+   CTA BANNER
+============================================ */
+.nb-services__cta {
+  background: var(--forest);
+  position: relative;
+  margin-top: 4rem;
+  overflow: hidden;
+}
+
+.nb-services__cta-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--amber);
+}
+
+.nb-services__cta-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
   flex-wrap: wrap;
 }
 
-.nb-btn-primary {
-  background-color: #1f7a3d;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
+.nb-services__cta-eyebrow {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  margin-bottom: 0.8rem;
+}
+
+.nb-services__cta-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.nb-services__cta-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.nb-services__btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
   border: none;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s ease;
+  padding: 0.9rem 1.8rem;
+  border-radius: 0;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.nb-btn-primary:hover {
-  background-color: #145c2d;
+.nb-services__btn--primary {
+  background: var(--amber-light);
+  color: var(--forest);
 }
 
-.nb-btn-outline {
+.nb-services__btn--primary:hover {
+  background: var(--amber);
+  color: var(--white);
+}
+
+.nb-services__btn--ghost {
   background: transparent;
-  border: 2px solid #1f7a3d;
-  color: #1f7a3d;
-  padding: 12px 28px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s ease;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
-.nb-btn-outline:hover {
-  background-color: #1f7a3d;
-  color: white;
+.nb-services__btn--ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.5);
 }
 
-/* ===============================
-   Responsive
-================================== */
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 860px) {
+  .nb-service-row {
+    grid-template-columns: 60px 1fr auto;
+    gap: 1.5rem;
+  }
 
-@media (max-width: 992px) {
-  .nb-services-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .nb-service-row__tag {
+    display: none;
+  }
+
+  .nb-service-row__ghost {
+    font-size: 5rem;
+    right: 1.5rem;
   }
 }
 
 @media (max-width: 600px) {
-  .nb-services-section {
-    padding: 70px 15px;
+  .nb-services__intro {
+    padding: 5rem 1.5rem 3rem;
   }
 
-  .nb-services-header h2 {
-    font-size: 2rem;
+  .nb-services__list {
+    padding: 0 1.5rem 2rem;
   }
 
-  .nb-services-grid {
-    grid-template-columns: 1fr;
+  .nb-service-row {
+    grid-template-columns: 50px 1fr auto;
+    gap: 1rem;
+    padding: 1.8rem 0.5rem;
   }
 
-  .nb-service-card {
-    padding: 30px 20px;
+  .nb-service-row__arrow {
+    display: none;
+  }
+
+  .nb-services__cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .nb-services__cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .nb-services__btn {
+    width: 100%;
+    text-align: center;
   }
 }

@@ -1,135 +1,456 @@
-/* ================================
-   Native Bounty – Navbar Styles
-   ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,700&family=Outfit:wght@300;400;500;600&display=swap');
 
-.nb-navbar {
-  width: 100%;
-  background-color: #0f3d2e; /* Agricultural green */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* ============================================
+   TOKENS
+============================================ */
+:root {
+  --forest:        #152E1E;
+  --forest-mid:    #1F4A2E;
+  --forest-light:  #2A6040;
+  --amber:         #D4920A;
+  --amber-light:   #F5C842;
+  --cream:         #FEFCF5;
+  --white:         #FFFFFF;
+  --nav-trans-text:#FFFFFF;
+  --nav-solid-text:#152E1E;
+  --muted:         #6B6455;
+  --rule:          #E2DDD4;
 }
 
-/* Container */
+/* Body scroll lock */
+.nb-scroll-lock {
+  overflow: hidden;
+}
+
+/* ============================================
+   NAVBAR SHELL
+============================================ */
+.nb-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900;
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 2rem;
+  /* Transparent state */
+  background: transparent;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Scrolled — solid white */
+.nb-navbar--scrolled {
+  background: var(--white);
+  box-shadow: 0 1px 0 var(--rule);
+}
+
+/* ============================================
+   CONTAINER
+============================================ */
 .nb-navbar__container {
-  max-width: 1200px;
+  max-width: 1260px;
   margin: 0 auto;
-  padding: 1.2rem 1.8rem; /* neutral height */
+  padding: 0 2rem;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
 }
 
-/* ================================
-   Logo
-   ================================ */
+/* ============================================
+   ACCENT LINE (bottom border)
+============================================ */
+.nb-navbar__accent-line {
+  height: 2px;
+  background: var(--amber);
+  width: 0;
+  transition: width 0.4s ease;
+}
 
+.nb-navbar--scrolled .nb-navbar__accent-line {
+  width: 100%;
+}
+
+/* ============================================
+   LOGO
+============================================ */
 .nb-navbar__logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  color: #ffffff;
-  font-weight: 600;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nb-navbar__logo-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.3);
+  flex-shrink: 0;
+  transition: border-color 0.35s ease;
+}
+
+.nb-navbar--scrolled .nb-navbar__logo-mark {
+  border-color: var(--rule);
+}
+
+.nb-navbar__logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nb-navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.nb-navbar__logo-primary {
+  font-family: 'Fraunces', serif;
   font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--nav-trans-text);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  transition: color 0.35s ease;
 }
 
-.nb-navbar__logo img {
-  height: 44px;
-  width: auto;
+.nb-navbar--scrolled .nb-navbar__logo-primary {
+  color: var(--forest);
 }
 
-/* ================================
-   Desktop Navigation Links
-   ================================ */
+.nb-navbar__logo-sub {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.35s ease;
+}
 
+.nb-navbar--scrolled .nb-navbar__logo-sub {
+  color: var(--muted);
+}
+
+/* ============================================
+   DESKTOP LINKS
+============================================ */
 .nb-navbar__links {
   display: flex;
-  gap: 1.8rem;
+  align-items: center;
+  gap: 0.25rem;
 }
 
-.nb-navbar__links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
+.nb-navbar__link {
   position: relative;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255,255,255,0.85);
+  padding: 0.5rem 0.9rem;
+  transition: color 0.2s ease;
 }
 
-/* Active Link */
-.nb-navbar__links a.active::after {
-  content: "";
+.nb-navbar--scrolled .nb-navbar__link {
+  color: var(--muted);
+}
+
+.nb-navbar__link::after {
+  content: '';
   position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0;
   height: 2px;
-  background-color: #f4c430; /* Harvest gold */
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Hover */
-.nb-navbar__links a:hover {
-  color: #f4c430;
+.nb-navbar__link:hover {
+  color: var(--white);
 }
 
-/* ================================
-   Hamburger Button (Mobile)
-   ================================ */
+.nb-navbar--scrolled .nb-navbar__link:hover {
+  color: var(--forest);
+}
 
+.nb-navbar__link:hover::after,
+.nb-navbar__link--active::after {
+  transform: scaleX(1);
+}
+
+.nb-navbar__link--active {
+  color: var(--white) !important;
+}
+
+.nb-navbar--scrolled .nb-navbar__link--active {
+  color: var(--forest) !important;
+}
+
+/* ============================================
+   DESKTOP CTA BUTTON
+============================================ */
+.nb-navbar__cta {
+  flex-shrink: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--forest);
+  background: var(--amber-light);
+  padding: 0.65rem 1.4rem;
+  border-radius: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nb-navbar__cta:hover {
+  background: var(--amber);
+  color: var(--white);
+}
+
+/* ============================================
+   HAMBURGER BUTTON
+============================================ */
 .nb-navbar__hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
 
-.nb-navbar__hamburger span {
-  width: 24px;
-  height: 2px;
-  background-color: #ffffff;
+.nb-bar {
   display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.35s ease;
+  transform-origin: center;
 }
 
-/* ================================
-   Mobile Menu
-   ================================ */
+.nb-navbar--scrolled .nb-bar {
+  background: var(--forest);
+}
 
-.nb-navbar__mobile {
+/* Morph to X on open */
+.nb-navbar__hamburger--open .nb-bar--top {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nb-navbar__hamburger--open .nb-bar--mid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nb-navbar__hamburger--open .nb-bar--bot {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ============================================
+   DRAWER OVERLAY
+============================================ */
+.nb-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(21, 46, 30, 0.5);
+  z-index: 950;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  backdrop-filter: blur(3px);
+}
+
+.nb-drawer-overlay--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ============================================
+   MOBILE DRAWER
+============================================ */
+.nb-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(340px, 85vw);
+  background: var(--white);
+  z-index: 960;
   display: flex;
   flex-direction: column;
-  background-color: #0f3d2e;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  border-left: 3px solid var(--amber);
+}
+
+.nb-drawer--open {
+  transform: translateX(0);
+}
+
+/* Drawer header */
+.nb-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.8rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.nb-drawer__brand {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: -0.01em;
+}
+
+.nb-drawer__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  background: none;
+  cursor: pointer;
+  color: var(--forest);
+  border-radius: 50%;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nb-drawer__close:hover {
+  background: var(--forest);
+  color: var(--white);
+}
+
+/* Drawer link list */
+.nb-drawer__links {
+  list-style: none;
+  padding: 1.5rem 0;
+  flex: 1;
+}
+
+.nb-drawer__links li {
+  animation: drawerLinkIn 0.4s calc(var(--i) * 0.07s + 0.1s) ease both;
+  opacity: 0;
+}
+
+.nb-drawer--open .nb-drawer__links li {
+  opacity: 1;
+}
+
+.nb-drawer__link {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
   padding: 1rem 1.8rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.nb-navbar__mobile a {
-  color: #ffffff;
   text-decoration: none;
-  padding: 0.9rem 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 500;
+  color: var(--muted);
+  border-left: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  letter-spacing: 0.01em;
 }
 
-.nb-navbar__mobile a.active {
-  color: #f4c430;
+.nb-drawer__link:hover {
+  color: var(--forest);
+  background: #F7F4EE;
+  border-left-color: var(--amber);
 }
 
-.nb-navbar__mobile a:hover {
-  color: #f4c430;
+.nb-drawer__link--active {
+  color: var(--forest) !important;
+  border-left-color: var(--amber) !important;
+  font-weight: 600;
 }
 
-/* ================================
-   Responsive Rules
-   ================================ */
+.nb-drawer__link-num {
+  font-family: 'Fraunces', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--amber);
+  min-width: 22px;
+}
 
-@media (max-width: 768px) {
-  .nb-navbar__links {
+/* Drawer footer */
+.nb-drawer__footer {
+  padding: 1.5rem 1.8rem 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.nb-drawer__cta {
+  display: block;
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--forest);
+  background: var(--amber-light);
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+
+.nb-drawer__cta:hover {
+  background: var(--amber);
+  color: var(--white);
+}
+
+.nb-drawer__tagline {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ============================================
+   ANIMATIONS
+============================================ */
+@keyframes drawerLinkIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 900px) {
+  .nb-navbar__links,
+  .nb-navbar__cta {
     display: none;
   }
-
   .nb-navbar__hamburger {
     display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .nb-navbar__container {
+    padding: 0 1.2rem;
+  }
+  .nb-navbar__logo-sub {
+    display: none;
   }
 }

@@ -1,129 +1,201 @@
-// components/ContactFAQ.tsx
-import React, { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/contactfaq.css";
-import { Mail, Phone, ChevronDown, Truck } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 
-const faqData = [
+/* ── Scroll-reveal hook ── */
+const useReveal = (delay = 0) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => el.classList.add("is-visible"), delay);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.12 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [delay]);
+  return ref;
+};
+
+const FAQ_DATA = [
   {
     question: "What areas do you serve for logistics?",
     answer:
-      "We currently operate across all major counties in Kenya, with dedicated routes in Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret. Our network continues to expand based on client demand."
+      "We currently operate across all major counties in Kenya, with dedicated routes in Nairobi, Mombasa, Kisumu, Nakuru, and Eldoret. Our network continues to expand based on client demand.",
   },
   {
     question: "How do I track my shipment?",
     answer:
-      "Every shipment receives a unique tracking number. You can monitor your cargo in real-time through our online portal or receive SMS updates at key transit points."
+      "Every shipment receives a unique tracking number. You can monitor your cargo in real-time through our online portal or receive SMS updates at key transit points.",
   },
   {
     question: "What types of cargo can you transport?",
     answer:
-      "We handle general freight, perishable goods with temperature-controlled vehicles, construction materials, and oversized cargo. Special requirements can be discussed with our logistics team."
+      "We handle general freight, perishable goods with temperature-controlled vehicles, construction materials, and oversized cargo. Special requirements can be discussed with our team.",
   },
   {
     question: "How quickly can you dispatch a vehicle?",
     answer:
-      "Standard dispatch is within 24 hours of order confirmation. For urgent requirements, we offer express dispatch within 4-6 hours subject to vehicle availability."
-  }
+      "Standard dispatch is within 24 hours of order confirmation. For urgent requirements, we offer express dispatch within 4–6 hours subject to vehicle availability.",
+  },
 ];
 
-const ContactFAQ: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+const ContactFAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const navigate = useNavigate();
+  const leftRef = useReveal(0);
+  const rightRef = useReveal(100);
 
   return (
-    <section className="logistics-contact-section">
-      <div className="logistics-contact-container">
-        {/* Header */}
-        <div className="logistics-contact-header">
-          <span className="logistics-contact-badge">GET IN TOUCH</span>
-          <h2>We're Here to Help</h2>
-          <p>
-            Whether you need a quote, have questions about our services, 
-            or want to discuss a logistics partnership, our team is ready to assist you.
-          </p>
-        </div>
+    <section className="nb-cf">
 
-        {/* Main Contact Area */}
-        <div className="logistics-contact-grid">
-          {/* Left Column - Contact Info */}
-          <div className="logistics-contact-info">
-            <h3>Contact Information</h3>
-            <p>Reach out to us through any of these channels</p>
-            
-            <div className="logistics-contact-details">
-              <div className="logistics-contact-item">
-                <div className="logistics-contact-icon">
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <span className="logistics-contact-label">Phone</span>
-                  <a href="tel:+254700123456" className="logistics-contact-value">
-                    +254 700 712 085
-                  </a>
-                  <span className="logistics-contact-note">24/7 Support</span>
-                </div>
-              </div>
+      
 
-              <div className="logistics-contact-item">
-                <div className="logistics-contact-icon">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <span className="logistics-contact-label">Email</span>
-                  <a href="mailto:info@nativebounty.co.ke" className="logistics-contact-value">
-                    info@nativebounty.co.ke
-                  </a>
-                  <span className="logistics-contact-note">Response within 2 hours</span>
-                </div>
-              </div>
-            </div>
+      {/* ── RIGHT: FAQ panel (cream) ── */}
+      <div className="nb-cf__right reveal" ref={rightRef}>
+        <div className="nb-cf__right-inner">
 
-            {/* Quick Actions */}
-            <div className="logistics-quick-actions">
-              <button className="logistics-btn-primary">
-                <Truck size={18} />
-                Request a Quote
-              </button>
-            </div>
-          </div>
+          <span className="nb-cf__eyebrow nb-cf__eyebrow--dark">
+            <span className="nb-cf__eyebrow-line nb-cf__eyebrow-line--dark" />
+            Common Questions
+          </span>
 
-          {/* Right Column - FAQ */}
-          <div className="logistics-faq-section">
-            <h3>Frequently Asked Questions</h3>
-            <p>Quick answers to common questions</p>
-            
-            <div className="logistics-faq-list">
-              {faqData.map((faq, index) => (
-                <div
-                  key={index}
-                  className={`logistics-faq-item ${
-                    openIndex === index ? "active" : ""
-                  }`}
+          <h3 className="nb-cf__faq-heading">
+            Frequently asked<br />
+            <em>questions.</em>
+          </h3>
+
+          <div className="nb-cf__faq-list">
+            {FAQ_DATA.map((faq, i) => (
+              <div
+                key={i}
+                className={`nb-cf__faq-item ${openIndex === i ? "nb-cf__faq-item--open" : ""}`}
+              >
+                <button
+                  className="nb-cf__faq-q"
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                  aria-expanded={openIndex === i}
                 >
-                  <button
-                    className="logistics-faq-question"
-                    onClick={() => toggleFAQ(index)}
-                  >
-                    <span>{faq.question}</span>
-                    <ChevronDown 
-                      size={18} 
-                      className={`logistics-faq-icon ${
-                        openIndex === index ? "rotated" : ""
-                      }`}
-                    />
-                  </button>
-                  <div className="logistics-faq-answer">
-                    <p>{faq.answer}</p>
-                  </div>
+                  <span className="nb-cf__faq-num">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="nb-cf__faq-text">{faq.question}</span>
+                  <span className="nb-cf__faq-toggle">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      className="nb-cf__faq-chevron"
+                    >
+                      <path d="M2 5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </button>
+                <div className="nb-cf__faq-a">
+                  <p>{faq.answer}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
+
+          <p className="nb-cf__faq-more">
+            Can't find what you need?{" "}
+            <a href="mailto:info@nativebounty.co.ke" className="nb-cf__faq-link">
+              Drop us an email
+            </a>
+          </p>
+
         </div>
       </div>
+      {/* ── LEFT: Contact panel (dark) ── */}
+      <div className="nb-cf__left reveal" ref={leftRef}>
+
+        {/* CSS grid texture */}
+        <div className="nb-cf__texture" aria-hidden="true" />
+
+        <div className="nb-cf__left-inner">
+
+          <span className="nb-cf__eyebrow">
+            <span className="nb-cf__eyebrow-line" />
+            Get In Touch
+          </span>
+
+          <h2 className="nb-cf__heading">
+            Let's build<br />
+            something<br />
+            <em>together.</em>
+          </h2>
+
+          <p className="nb-cf__subtext">
+            Whether you're a farmer ready to join the network, or a buyer
+            looking for reliable supply — we want to hear from you.
+          </p>
+
+          {/* Contact details — big typographic style */}
+          <div className="nb-cf__contacts">
+
+            <a href="tel:+254700712085" className="nb-cf__contact-row">
+              <div className="nb-cf__contact-icon">
+                <Phone size={16} strokeWidth={1.5} />
+              </div>
+              <div className="nb-cf__contact-body">
+                <span className="nb-cf__contact-label">Call us</span>
+                <span className="nb-cf__contact-value">+254 700 712 085</span>
+                <span className="nb-cf__contact-note">24 / 7 support line</span>
+              </div>
+              <ArrowUpRight size={16} className="nb-cf__contact-arrow" />
+            </a>
+
+            <a href="mailto:info@nativebounty.co.ke" className="nb-cf__contact-row">
+              <div className="nb-cf__contact-icon">
+                <Mail size={16} strokeWidth={1.5} />
+              </div>
+              <div className="nb-cf__contact-body">
+                <span className="nb-cf__contact-label">Email us</span>
+                <span className="nb-cf__contact-value">info@nativebounty.co.ke</span>
+                <span className="nb-cf__contact-note">Response within 2 hours</span>
+              </div>
+              <ArrowUpRight size={16} className="nb-cf__contact-arrow" />
+            </a>
+
+            <div className="nb-cf__contact-row nb-cf__contact-row--static">
+              <div className="nb-cf__contact-icon">
+                <MapPin size={16} strokeWidth={1.5} />
+              </div>
+              <div className="nb-cf__contact-body">
+                <span className="nb-cf__contact-label">Based in</span>
+                <span className="nb-cf__contact-value">Nairobi, Kenya</span>
+                <span className="nb-cf__contact-note">Operating across 12 counties</span>
+              </div>
+            </div>
+
+          </div>
+
+          {/* CTA buttons */}
+          <div className="nb-cf__actions">
+            <button
+              className="nb-cf__btn nb-cf__btn--primary"
+              onClick={() => navigate("/contact")}
+            >
+              Partner as Farmer
+            </button>
+            <button
+              className="nb-cf__btn nb-cf__btn--ghost"
+              onClick={() => navigate("/contact")}
+            >
+              Request Supply
+            </button>
+          </div>
+
+        </div>
+      </div>
+
     </section>
   );
 };

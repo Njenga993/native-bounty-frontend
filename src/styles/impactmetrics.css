@@ -1,96 +1,282 @@
-/* ===============================
-   Native Bounty - Impact & Metrics
-   Unique Prefix: nb-im-
-================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,900&family=Outfit:wght@300;400;500;600&display=swap');
 
-.nb-im-section {
-  padding: 100px 20px;
-  background:  #1f3d2b;
-  color: white;
+/* ============================================
+   TOKENS
+============================================ */
+:root {
+  --forest:      #152E1E;
+  --forest-mid:  #1F4A2E;
+  --forest-deep: #0D1F14;
+  --amber:       #D4920A;
+  --amber-light: #F5C842;
+  --cream:       #F7F3EB;
+  --white:       #FFFFFF;
+  --stone:       #6B6455;
+  --rule:        rgba(255,255,255,0.12);
 }
 
-.nb-im-container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* ============================================
+   SCROLL REVEAL
+============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.nb-im-header {
-  text-align: center;
-  margin-bottom: 70px;
-}
-
-.nb-im-header h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.nb-im-header p {
-  max-width: 650px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-/* Grid */
-.nb-im-grid {
+/* ============================================
+   SECTION — two-column grid
+============================================ */
+.nb-im {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  min-height: 640px;
+  font-family: 'Outfit', sans-serif;
+  background: var(--forest);
 }
 
-/* Card */
-.nb-im-card {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 40px 20px;
-  border-radius: 18px;
-  text-align: center;
-  backdrop-filter: blur(6px);
-  transition: all 0.3s ease;
+/* ============================================
+   LEFT COLUMN
+============================================ */
+.nb-im__left {
+  position: relative;
+  background: var(--forest-deep);
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
 }
 
-.nb-im-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.15);
+/* CSS field-grid texture */
+.nb-im__texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      rgba(255,255,255,0.03) 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      rgba(255,255,255,0.03) 60px
+    );
+  pointer-events: none;
 }
 
-.nb-im-icon {
-  margin-bottom: 20px;
-  color: #ffffff;
+/* Amber left border */
+.nb-im__left::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--amber);
 }
 
-.nb-im-card h3 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  font-weight: 700;
+.nb-im__left-inner {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 3.5rem 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.nb-im-card p {
-  font-size: 1rem;
-  opacity: 0.9;
+/* Eyebrow */
+.nb-im__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 2rem;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .nb-im-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.nb-im__eyebrow-line {
+  display: inline-block;
+  width: 26px;
+  height: 2px;
+  background: var(--amber);
+  flex-shrink: 0;
 }
 
-@media (max-width: 600px) {
-  .nb-im-section {
-    padding: 70px 15px;
-  }
+/* Heading */
+.nb-im__heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 900;
+  line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
+}
 
-  .nb-im-header h2 {
-    font-size: 2rem;
-  }
+.nb-im__heading em {
+  font-style: italic;
+  color: var(--amber-light);
+}
 
-  .nb-im-grid {
+/* Statement */
+.nb-im__statement {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  max-width: 360px;
+  margin-bottom: 2rem;
+}
+
+/* Divider */
+.nb-im__divider {
+  width: 40px;
+  height: 1px;
+  background: var(--amber);
+  margin-bottom: 1.5rem;
+  opacity: 0.6;
+}
+
+/* Footnote */
+.nb-im__footnote {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.28);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+/* ============================================
+   RIGHT COLUMN — metric list
+============================================ */
+.nb-im__right {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Single metric row ── */
+.nb-im__metric {
+  flex: 1;
+  padding: 2.5rem 3.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: background 0.3s ease;
+  cursor: default;
+}
+
+.nb-im__metric--last {
+  border-bottom: none;
+}
+
+.nb-im__metric:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* Hover: amber left accent */
+.nb-im__metric::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--amber);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nb-im__metric:hover::before {
+  transform: scaleY(1);
+}
+
+/* Number */
+.nb-im__metric-number {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.8rem, 4.5vw, 4rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+/* Amber thin rule */
+.nb-im__metric-rule {
+  width: 32px;
+  height: 2px;
+  background: var(--amber);
+  margin-bottom: 0.65rem;
+}
+
+/* Label */
+.nb-im__metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.35rem;
+}
+
+/* Context */
+.nb-im__metric-context {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.38);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 900px) {
+  .nb-im {
     grid-template-columns: 1fr;
   }
 
-  .nb-im-card h3 {
-    font-size: 1.7rem;
+  .nb-im__left-inner {
+    padding: 4rem 2rem 3rem 2.5rem;
+  }
+
+  .nb-im__heading {
+    font-size: clamp(2.8rem, 12vw, 4rem);
+  }
+
+  .nb-im__right {
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nb-im__metric {
+    padding: 2rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nb-im__left-inner {
+    padding: 3.5rem 1.5rem 2.5rem 2rem;
+  }
+
+  .nb-im__metric {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .nb-im__metric-number {
+    font-size: 2.8rem;
   }
 }
