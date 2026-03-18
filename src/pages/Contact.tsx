@@ -5,8 +5,7 @@ import {
   Mail, 
   Phone, 
   ChevronDown, 
-  Truck, 
-  Package, 
+  Truck,  
   MapPin, 
   Clock, 
   Send,
@@ -56,26 +55,12 @@ const faqData = [
 
 const officeLocations = [
   {
-    city: "Nairobi Headquarters",
-    address: "Waiyaki Way, Westlands, Nairobi",
-    phone: "+254 700 123 456",
-    email: "nairobi@nativebounty.co.ke",
-    hours: "Mon-Fri: 8AM-6PM, Sat: 9AM-4PM"
+    city: "Gilgil Headquarters",
+    address: "Off nakuru-nairobi highway, Gilgil, Kariandusi Area",
+    phone: "+254 700 712 085",
+    email: "info@nativebounty.co.ke",
+    hours: "Mon-Fri: 8AM-5PM, Sat: 9AM-4PM"
   },
-  {
-    city: "Mombasa Office",
-    address: "Dongo Kundu, Mombasa",
-    phone: "+254 700 123 457",
-    email: "mombasa@nativebounty.co.ke",
-    hours: "Mon-Fri: 8AM-5PM"
-  },
-  {
-    city: "Kisumu Office",
-    address: "Kakamega Road, Kisumu",
-    phone: "+254 700 123 458",
-    email: "kisumu@nativebounty.co.ke",
-    hours: "Mon-Fri: 8AM-5PM"
-  }
 ];
 
 const ContactPage: React.FC = () => {
@@ -194,7 +179,7 @@ const ContactPage: React.FC = () => {
               <Phone size={24} />
             </div>
             <h3>Call Us</h3>
-            <p>+254 700 123 456</p>
+            <p>+254 700 712 085</p>
             <span>24/7 Support Available</span>
           </div>
           
@@ -212,8 +197,8 @@ const ContactPage: React.FC = () => {
               <MapPin size={24} />
             </div>
             <h3>Visit Us</h3>
-            <p>Westlands, Nairobi</p>
-            <span>Mon-Fri: 8AM-6PM</span>
+            <p>Gilgil , Nakuru</p>
+            <span>Mon-Fri: 8AM-5PM</span>
           </div>
           
           <div className="ns-contact-card">
@@ -390,8 +375,8 @@ const ContactPage: React.FC = () => {
           {/* Office Locations */}
           <div className="ns-locations-section">
             <div className="ns-locations-header">
-              <h2>Our Office Locations</h2>
-              <p>Visit us at any of our convenient locations</p>
+              <h2>Our Office Location</h2>
+              <p>Visit us at our location</p>
             </div>
             
             <div className="ns-locations-list">
@@ -478,16 +463,8 @@ const ContactPage: React.FC = () => {
               <span>Request a Quote</span>
             </button>
             <button className="ns-quick-action-btn">
-              <Package size={20} />
-              <span>Track Shipment</span>
-            </button>
-            <button className="ns-quick-action-btn">
               <Phone size={20} />
               <span>Call Support</span>
-            </button>
-            <button className="ns-quick-action-btn">
-              <MessageSquare size={20} />
-              <span>Live Chat</span>
             </button>
           </div>
         </div>

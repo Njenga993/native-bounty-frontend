@@ -5,7 +5,7 @@ import About from "../components/About";
 import Services from "../components/Services";
 import SupplyChain from "../components/SupplyChain";
 import ImpactMetrics from "../components/ImpactMetrics";
-import Coverage from "../components/Coverage";
+//import Coverage from "../components/Coverage";
 import ContactFAQ from "../components/ContactFAQ";
 // import Features from "../components/Features";
 // import HowItWorks from "../components/HowItWorks";
@@ -23,7 +23,7 @@ const Home = () => {
       <Services />
       <SupplyChain />
       <ImpactMetrics />
-      <Coverage />
+      {/*<Coverage />*/}
       <ContactFAQ />
       {/*<Features />
       <HowItWorks />

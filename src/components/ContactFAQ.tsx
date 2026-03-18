@@ -1,7 +1,7 @@
 // components/ContactFAQ.tsx
 import React, { useState } from "react";
 import "../styles/contactfaq.css";
-import { Mail, Phone, ChevronDown, Truck, Package } from "lucide-react";
+import { Mail, Phone, ChevronDown, Truck } from "lucide-react";
 
 const faqData = [
   {
@@ -61,7 +61,7 @@ const ContactFAQ: React.FC = () => {
                 <div>
                   <span className="logistics-contact-label">Phone</span>
                   <a href="tel:+254700123456" className="logistics-contact-value">
-                    +254 700 123 456
+                    +254 700 712 085
                   </a>
                   <span className="logistics-contact-note">24/7 Support</span>
                 </div>
@@ -86,10 +86,6 @@ const ContactFAQ: React.FC = () => {
               <button className="logistics-btn-primary">
                 <Truck size={18} />
                 Request a Quote
-              </button>
-              <button className="logistics-btn-secondary">
-                <Package size={18} />
-                Track Shipment
               </button>
             </div>
           </div>

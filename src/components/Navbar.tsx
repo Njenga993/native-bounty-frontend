@@ -20,7 +20,6 @@ const Navbar = () => {
           <NavLink to="/native-bounty-frontend" end>Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/services">Services</NavLink>
-          <NavLink to="/network">Network</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
 
@@ -39,10 +38,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <nav className="nb-navbar__mobile">
-          <NavLink onClick={() => setMenuOpen(false)} to="/" end>Home</NavLink>
+          <NavLink onClick={() => setMenuOpen(false)} to="/native-bounty-frontend" end>Home</NavLink>
           <NavLink onClick={() => setMenuOpen(false)} to="/about">About</NavLink>
           <NavLink onClick={() => setMenuOpen(false)} to="/services">Services</NavLink>
-          <NavLink onClick={() => setMenuOpen(false)} to="/network">Network</NavLink>
           <NavLink onClick={() => setMenuOpen(false)} to="/contact">Contact</NavLink>
         </nav>
       )}

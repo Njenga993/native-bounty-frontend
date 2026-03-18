@@ -1,7 +1,7 @@
 import "../styles/aboutpage.css";
 import AboutImg1 from "../assets/about-image-1.webp";
 import AboutImg2 from "../assets/about-image-2.webp";
-import TeamImg from "../assets/about-image-1.webp";
+//import TeamImg from "../assets/about-image-1.webp";
 import ImpactImg from "../assets/about-image-2.webp";
 
 const About = () => {
@@ -128,7 +128,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Team Section */}
+        {/* Team Section 
         <div className="nb-about__team">
           <h3>Our Leadership Team</h3>
           <div className="nb-about__team-grid">
@@ -165,7 +165,7 @@ const About = () => {
               <p>James manages our relationships with farming communities and ensures their needs are met.</p>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         {/* Impact Section */}
         <div className="nb-about__impact">
