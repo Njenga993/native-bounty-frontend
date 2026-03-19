@@ -99,7 +99,7 @@ const ContactPage = () => {
             Let's talk<br /><em>produce.</em>
           </h1>
           <p className="nb-cp__hero-sub">
-            Whether you're a farmer, a buyer, or just exploring — we're ready.
+            Whether you're a farmer, a buyer, or just exploring  we're ready.
           </p>
         </div>
         {/* Amber bottom edge */}

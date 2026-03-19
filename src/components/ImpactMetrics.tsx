@@ -103,7 +103,7 @@ const ImpactMetrics = () => {
 
           <p className="nb-im__footnote">
             Figures reflect cumulative network performance as of Q2 2025.
-            Updated quarterly.
+            Updated quarterly
           </p>
         </div>
       </div>
