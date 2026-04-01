@@ -16,7 +16,7 @@ const useReveal = (delay = 0) => {
           obs.disconnect();
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -55,20 +55,17 @@ const ContactFAQ = () => {
 
   return (
     <section className="nb-cf">
-
-      
-
       {/* ── RIGHT: FAQ panel (cream) ── */}
       <div className="nb-cf__right reveal" ref={rightRef}>
         <div className="nb-cf__right-inner">
-
           <span className="nb-cf__eyebrow nb-cf__eyebrow--dark">
             <span className="nb-cf__eyebrow-line nb-cf__eyebrow-line--dark" />
             Common Questions
           </span>
 
           <h3 className="nb-cf__faq-heading">
-            Frequently asked<br />
+            Frequently asked
+            <br />
             <em>questions.</em>
           </h3>
 
@@ -83,7 +80,9 @@ const ContactFAQ = () => {
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   aria-expanded={openIndex === i}
                 >
-                  <span className="nb-cf__faq-num">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="nb-cf__faq-num">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <span className="nb-cf__faq-text">{faq.question}</span>
                   <span className="nb-cf__faq-toggle">
                     <svg
@@ -93,7 +92,13 @@ const ContactFAQ = () => {
                       fill="none"
                       className="nb-cf__faq-chevron"
                     >
-                      <path d="M2 5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M2 5l5 5 5-5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </span>
                 </button>
@@ -106,29 +111,31 @@ const ContactFAQ = () => {
 
           <p className="nb-cf__faq-more">
             Can't find what you need?{" "}
-            <a href="mailto:info@nativebounty.co.ke" className="nb-cf__faq-link">
+            <a
+              href="mailto:info@nativebounty.co.ke"
+              className="nb-cf__faq-link"
+            >
               Drop us an email
             </a>
           </p>
-
         </div>
       </div>
       {/* ── LEFT: Contact panel (dark) ── */}
       <div className="nb-cf__left reveal" ref={leftRef}>
-
         {/* CSS grid texture */}
         <div className="nb-cf__texture" aria-hidden="true" />
 
         <div className="nb-cf__left-inner">
-
           <span className="nb-cf__eyebrow">
             <span className="nb-cf__eyebrow-line" />
             Get In Touch
           </span>
 
           <h2 className="nb-cf__heading">
-            Let's build<br />
-            something<br />
+            Let's build
+            <br />
+            something
+            <br />
             <em>together.</em>
           </h2>
 
@@ -139,27 +146,33 @@ const ContactFAQ = () => {
 
           {/* Contact details — big typographic style */}
           <div className="nb-cf__contacts">
-
             <a href="tel:+254700712085" className="nb-cf__contact-row">
               <div className="nb-cf__contact-icon">
                 <Phone size={16} strokeWidth={1.5} />
               </div>
               <div className="nb-cf__contact-body">
                 <span className="nb-cf__contact-label">Call us</span>
-                <span className="nb-cf__contact-value">+254 700 712 085</span>
+                <span className="nb-cf__contact-value">+254 115374520</span>
                 <span className="nb-cf__contact-note">24 / 7 support line</span>
               </div>
               <ArrowUpRight size={16} className="nb-cf__contact-arrow" />
             </a>
 
-            <a href="mailto:info@nativebounty.co.ke" className="nb-cf__contact-row">
+            <a
+              href="mailto:info@nativebounty.co.ke"
+              className="nb-cf__contact-row"
+            >
               <div className="nb-cf__contact-icon">
                 <Mail size={16} strokeWidth={1.5} />
               </div>
               <div className="nb-cf__contact-body">
                 <span className="nb-cf__contact-label">Email us</span>
-                <span className="nb-cf__contact-value">info@nativebounty.co.ke</span>
-                <span className="nb-cf__contact-note">Response within 2 hours</span>
+                <span className="nb-cf__contact-value">
+                  info@nativebounty.co.ke
+                </span>
+                <span className="nb-cf__contact-note">
+                  Response within 2 hours
+                </span>
               </div>
               <ArrowUpRight size={16} className="nb-cf__contact-arrow" />
             </a>
@@ -171,10 +184,11 @@ const ContactFAQ = () => {
               <div className="nb-cf__contact-body">
                 <span className="nb-cf__contact-label">Based in</span>
                 <span className="nb-cf__contact-value">Nairobi, Kenya</span>
-                <span className="nb-cf__contact-note">Operating across 12 counties</span>
+                <span className="nb-cf__contact-note">
+                  Operating across 12 counties
+                </span>
               </div>
             </div>
-
           </div>
 
           {/* CTA buttons */}
@@ -192,10 +206,8 @@ const ContactFAQ = () => {
               Request Supply
             </button>
           </div>
-
         </div>
       </div>
-
     </section>
   );
 };

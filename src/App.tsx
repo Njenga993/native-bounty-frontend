@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import ContactPage from "./pages/Contact";
 import BackToTop from "./components/BacktoTop";
 import PageLoader from "./components/PageLoader";
+import { HelmetProvider } from "react-helmet-async";
 
 /* ─────────────────────────────────────────────────────────
    RouteLoader — lives INSIDE BrowserRouter so it can read
@@ -33,25 +34,25 @@ const RouteLoader = () => {
 ───────────────────────────────────────────────────────── */
 const App = () => {
   return (
-    <BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        {/* Route-aware loader — fires on every page transition */}
+        <RouteLoader />
 
-      {/* Route-aware loader — fires on every page transition */}
-      <RouteLoader />
+        <Navbar />
 
-      <Navbar />
+        <Routes>
+          <Route path="/native-bounty-frontend" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/network" element={<div>Network</div>} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
 
-      <Routes>
-        <Route path="/native-bounty-frontend" element={<Home />} />
-        <Route path="/about"                  element={<About />} />
-        <Route path="/services"               element={<Services />} />
-        <Route path="/network"                element={<div>Network</div>} />
-        <Route path="/contact"                element={<ContactPage />} />
-      </Routes>
-
-      <BackToTop />
-      <Footer />
-
-    </BrowserRouter>
+        <BackToTop />
+        <Footer />
+      </BrowserRouter>
+    </HelmetProvider>
   );
 };
 

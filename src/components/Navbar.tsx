@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/navbar.css";
-import Logo from "../assets/native-bounty-logo.jpeg";
+import Logo from "../assets/native_StoreLogo.png";
 
 const NAV_LINKS = [
-  { label: "Home",     to: "/native-bounty-frontend", end: true },
-  { label: "About",    to: "/about" },
+  { label: "Home", to: "/native-bounty-frontend", end: true },
+  { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Contact",  to: "/contact" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   /* Scroll detection — switches navbar from transparent to solid */
   useEffect(() => {
@@ -33,15 +33,20 @@ const Navbar = () => {
     <>
       <header className={`nb-navbar ${scrolled ? "nb-navbar--scrolled" : ""}`}>
         <div className="nb-navbar__container">
-
           {/* ── Logo ── */}
-          <NavLink to="/native-bounty-frontend" className="nb-navbar__logo" onClick={close}>
+          <NavLink
+            to="/native-bounty-frontend"
+            className="nb-navbar__logo"
+            onClick={close}
+          >
             <div className="nb-navbar__logo-mark">
               <img src={Logo} alt="Native Bounty" />
             </div>
             <div className="nb-navbar__logo-text">
               <span className="nb-navbar__logo-primary">Native Bounty</span>
-              <span className="nb-navbar__logo-sub">Farm · Market · Network</span>
+              <span className="nb-navbar__logo-sub">
+                Farm · Market · Network
+              </span>
             </div>
           </NavLink>
 
@@ -77,7 +82,6 @@ const Navbar = () => {
             <span className="nb-bar nb-bar--mid" />
             <span className="nb-bar nb-bar--bot" />
           </button>
-
         </div>
 
         {/* ── Progress bar (decorative bottom line) ── */}
@@ -99,9 +103,18 @@ const Navbar = () => {
         {/* Drawer header */}
         <div className="nb-drawer__header">
           <span className="nb-drawer__brand">Native Bounty</span>
-          <button className="nb-drawer__close" onClick={close} aria-label="Close menu">
+          <button
+            className="nb-drawer__close"
+            onClick={close}
+            aria-label="Close menu"
+          >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M2 2l16 16M18 2L2 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              <path
+                d="M2 2l16 16M18 2L2 18"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
             </svg>
           </button>
         </div>
