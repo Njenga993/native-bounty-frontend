@@ -1,264 +1,197 @@
-/**
- * Native Bounty — SEO Component (TypeScript)
- * -----------------------------------------
- * Drop <SEO /> at the top of every page.
- * Requires: npm install react-helmet-async
- * Requires: npm install -D @types/react-helmet (if needed)
- */
-
 import { Helmet } from "react-helmet-async";
 
-// ─── 1. TYPES ───────────────────────────────────────────────────────────────
-
-interface SchemaObject {
-  "@context": string;
-  "@type": string;
-  [key: string]: unknown;
-}
-
-interface PagePreset {
-  title: string;
-  description: string;
-  canonical: string;
-  keywords: string;
-  schema: SchemaObject;
-}
-
-type PageKey = "home" | "about" | "services" | "farmers" | "buyers" | "contact";
-
 interface SEOProps {
-  /** Use a preset key from PAGE_PRESETS (e.g. page="home") */
-  page?: PageKey;
-  /** Override any preset field individually */
-  title?: string;
-  description?: string;
-  canonical?: string;
-  keywords?: string;
-  /** Absolute URL or root-relative path to OG image (1200×630 px recommended) */
-  image?: string;
-  schema?: SchemaObject;
-  /** Set true to block indexing — use on /login, /thank-you, etc. */
-  noIndex?: boolean;
+  page: "home" | "about" | "services" | "contact" | "network";
 }
 
-// ─── 2. SITE-WIDE DEFAULTS ──────────────────────────────────────────────────
+const SEO = ({ page }: SEOProps) => {
+  // Base configuration
+  const siteUrl = "https://www.nativebounty.co.ke";
+  const siteName = "Native Bounty";
+  const defaultImage = `${siteUrl}/assets/og-image.jpg`;
 
-const SITE = {
-  name: "Native Bounty",
-  tagline: "Connecting Farmers to Markets",
-  url: "https://www.nativebounty.co.ke", // ← update before going live
-  logo: "https://www.nativebounty.co.ke/native_StoreLogo.png", // ← update before going live
-  defaultImage: "https://www.nativebounty.co.ke/native_StoreLogo.png", // 1200×630 px
-  twitterHandle: "@NativeBounty",
-  themeColor: "#2d6a4f",
-  locale: "en_KE",
-  language: "en",
-} as const;
-
-// ─── 3. PER-PAGE PRESETS ────────────────────────────────────────────────────
-
-const PAGE_PRESETS: Record<PageKey, PagePreset> = {
-  home: {
-    title: "Native Bounty | Farm-to-Market Logistics in Kenya",
-    description:
-      "Native Bounty connects organic farmers directly to buyers across Kenya. Reliable logistics, 35+ market routes, 98% on-time delivery. Reduce post-harvest losses today.",
-    canonical: "/",
-    keywords:
-      "farm to market Kenya, organic farmers Kenya, agricultural logistics, fresh produce delivery, post-harvest logistics, farmer market connection Kenya",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: SITE.name,
-      url: SITE.url,
-      logo: SITE.logo,
+  // Page-specific configurations
+  const pageConfig = {
+    home: {
+      title:
+        "Native Bounty | Connecting Kenyan Farmers to Markets | Agricultural Logistics",
       description:
-        "Farm-to-market logistics platform connecting 500+ organic farmers to buyers across 12 counties in Kenya.",
-      areaServed: { "@type": "Country", name: "Kenya" },
-      foundingLocation: { "@type": "Place", name: "Kenya" },
-      knowsAbout: [
-        "organic farming",
-        "farm-to-market logistics",
-        "fresh produce delivery",
-        "agricultural supply chain",
-        "post-harvest management",
-      ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "500",
-      },
-      sameAs: [
-        "https://twitter.com/NativeBounty",
-        "https://www.linkedin.com/company/nativebounty",
-      ],
+        "Native Bounty connects organic farmers directly to buyers through reliable logistics. Reduce post-harvest losses with 98% on-time delivery across 35+ market routes in Kenya. Join 500+ farmers already in our network.",
+      keywords:
+        "Native Bounty, farmers Kenya, agricultural logistics, farm to market, organic farming Kenya, post-harvest loss reduction, Kenyan agriculture",
+      canonical: "/",
+      ogType: "website",
     },
-  },
-
-  about: {
-    title: "About Us | Native Bounty — Our Mission & Story",
-    description:
-      "Learn how Native Bounty is transforming agricultural supply chains in Kenya by bridging the gap between 500+ smallholder farmers and modern markets.",
-    canonical: "/about",
-    keywords:
-      "about Native Bounty, agricultural startup Kenya, smallholder farmers, farm logistics mission, agri-tech Kenya",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      name: "About Native Bounty",
-      url: `${SITE.url}/about`,
+    about: {
+      title:
+        "About Native Bounty | Revolutionizing Agricultural Supply Chains in Kenya",
       description:
-        "Native Bounty's mission, story, and the team behind Kenya's leading farm-to-market logistics network.",
+        "Learn how Native Bounty is transforming agricultural logistics in Kenya. Founded 2018, we've helped 500+ farmers across 12 counties reduce waste by 40% and increase income by 25%.",
+      keywords:
+        "Native Bounty about, agricultural logistics company Kenya, Kenyan agritech, farm supply chain, smallholder farmers Kenya",
+      canonical: "/about",
+      ogType: "website",
     },
-  },
-
-  services: {
-    title: "Our Services | Native Bounty Farm Logistics & Market Routes",
-    description:
-      "Explore Native Bounty's logistics services: structured market routes, cold-chain delivery, farmer onboarding, and real-time tracking across 12 Kenyan counties.",
-    canonical: "/services",
-    keywords:
-      "farm logistics services Kenya, cold chain delivery, fresh produce transport, market routes Kenya, agricultural delivery service",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      serviceType: "Agricultural Logistics",
-      provider: {
-        "@type": "Organization",
-        name: SITE.name,
-        url: SITE.url,
-      },
-      areaServed: { "@type": "Country", name: "Kenya" },
+    services: {
+      title:
+        "Our Services | Agricultural Logistics & Farm-to-Market Solutions | Native Bounty",
       description:
-        "Structured farm-to-market logistics including cold-chain delivery, route optimization, and buyer-seller matching for Kenyan farmers.",
+        "Explore Native Bounty's agricultural logistics services: structured aggregation, real-time delivery tracking, and market connections for Kenyan farmers. Reduce post-harvest losses and increase income.",
+      keywords:
+        "agricultural logistics services Kenya, farm to market solutions, produce aggregation, farmer logistics, Kenyan agribusiness",
+      canonical: "/services",
+      ogType: "website",
     },
-  },
-
-  farmers: {
-    title: "For Farmers | Join Native Bounty's Market Network",
-    description:
-      "Organic and smallholder farmers: sell directly to verified buyers, get fair prices, and eliminate middlemen. Join 500+ farmers on the Native Bounty network.",
-    canonical: "/farmers",
-    keywords:
-      "farmers market Kenya, sell farm produce online Kenya, direct to buyer farming, smallholder farmer platform, organic farm sales Kenya",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: "For Farmers — Native Bounty",
-      url: `${SITE.url}/farmers`,
+    contact: {
+      title:
+        "Contact Native Bounty | Partner With Us | Kenyan Agricultural Logistics",
       description:
-        "How Native Bounty helps organic and smallholder farmers access formal markets, get fair prices, and reduce post-harvest losses in Kenya.",
+        "Get in touch with Native Bounty to partner, inquire about services, or join our network of 500+ farmers across Kenya. We're building the future of agricultural logistics.",
+      keywords:
+        "contact Native Bounty, partner with us, Kenyan agricultural logistics, farmer network Kenya",
+      canonical: "/contact",
+      ogType: "website",
     },
-  },
-
-  buyers: {
-    title: "For Buyers | Source Fresh Organic Produce | Native Bounty",
-    description:
-      "Retailers, restaurants, and wholesalers: source fresh, traceable organic produce directly from verified Kenyan farmers with guaranteed delivery.",
-    canonical: "/buyers",
-    keywords:
-      "buy fresh produce Kenya, organic wholesale Kenya, farm produce sourcing, restaurant fresh supply Kenya, traceable produce Kenya",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      name: "For Buyers — Native Bounty",
-      url: `${SITE.url}/buyers`,
+    network: {
+      title: "Our Network | Native Bounty's Farmer & Partner Network in Kenya",
       description:
-        "How Native Bounty connects retailers, restaurants, and wholesalers with verified Kenyan farmers for consistent fresh produce supply.",
+        "Discover Native Bounty's growing network of 500+ farmers across 12 Kenyan counties. Join our agricultural logistics ecosystem and connect to reliable markets.",
+      keywords:
+        "Native Bounty network, farmer network Kenya, agricultural partners, Kenyan agribusiness network",
+      canonical: "/network",
+      ogType: "website",
     },
-  },
+  };
 
-  contact: {
-    title: "Contact Us | Native Bounty — Get in Touch",
+  const config = pageConfig[page];
+  const fullUrl = `${siteUrl}${config.canonical}`;
+
+  // Organization Structured Data
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Native Bounty",
+    url: siteUrl,
+    logo: `${siteUrl}/assets/native-bounty-logo.jpeg`,
     description:
-      "Have questions about joining Native Bounty's farmer or buyer network? Contact us today and our team will get back to you within 24 hours.",
-    canonical: "/contact",
-    keywords:
-      "contact Native Bounty, Native Bounty Kenya support, farm logistics enquiry, join Native Bounty",
-    schema: {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      name: "Contact Native Bounty",
-      url: `${SITE.url}/contact`,
-      description: "Get in touch with the Native Bounty team.",
+      "Agricultural logistics company connecting Kenyan farmers to markets through reliable, transparent supply chains.",
+    foundingDate: "2018",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Nairobi",
+      addressCountry: "KE",
     },
-  },
-};
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: "info@nativebounty.co.ke",
+      availableLanguage: ["English", "Swahili"],
+    },
+    sameAs: [
+      "https://www.facebook.com/nativebounty",
+      "https://twitter.com/nativebounty",
+      "https://www.instagram.com/nativebounty",
+      "https://www.linkedin.com/company/nativebounty",
+    ],
+  };
 
-// ─── 4. COMPONENT ───────────────────────────────────────────────────────────
+  // Website Structured Data
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteName,
+    url: siteUrl,
+    description: config.description,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${siteUrl}/search?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
 
-const SEO: React.FC<SEOProps> = ({
-  page,
-  title,
-  description,
-  canonical,
-  keywords,
-  image,
-  schema,
-  noIndex = false,
-}) => {
-  const preset = page ? PAGE_PRESETS[page] : ({} as Partial<PagePreset>);
-
-  const resolvedTitle =
-    title ?? preset.title ?? `${SITE.name} | ${SITE.tagline}`;
-  const resolvedDescription = description ?? preset.description ?? "";
-  const resolvedCanonical = canonical ?? preset.canonical ?? "/";
-  const resolvedKeywords = keywords ?? preset.keywords ?? "";
-  const resolvedImage = image ?? SITE.defaultImage;
-  const resolvedSchema = schema ?? preset.schema ?? null;
-
-  const fullUrl = `${SITE.url}${resolvedCanonical}`;
-  const fullImageUrl = resolvedImage.startsWith("http")
-    ? resolvedImage
-    : `${SITE.url}${resolvedImage}`;
+  // Local Business Schema (for Kenyan operations)
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Native Bounty",
+    description: "Agricultural logistics and farm-to-market services in Kenya",
+    url: siteUrl,
+    telephone: "+254700000000",
+    email: "info@nativebounty.co.ke",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Nairobi",
+      addressRegion: "Nairobi County",
+      addressCountry: "KE",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "-1.286389",
+      longitude: "36.817223",
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
+    },
+    priceRange: "$$",
+  };
 
   return (
     <Helmet>
-      {/* ── Core ─────────────────────────────────── */}
-      <html lang={SITE.language} />
-      <title>{resolvedTitle}</title>
-      <meta name="description" content={resolvedDescription} />
-      {resolvedKeywords && <meta name="keywords" content={resolvedKeywords} />}
-      <link rel="canonical" href={fullUrl} />
+      {/* Basic Meta Tags */}
+      <html lang="en" />
+      <title>{config.title}</title>
+      <meta name="description" content={config.description} />
+      <meta name="keywords" content={config.keywords} />
+      <meta name="author" content="Native Bounty" />
       <meta
         name="robots"
-        content={noIndex ? "noindex, nofollow" : "index, follow"}
+        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
       />
-      <meta name="theme-color" content={SITE.themeColor} />
-      <meta name="author" content={SITE.name} />
 
-      {/* ── Open Graph (Facebook, WhatsApp, LinkedIn) */}
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content={SITE.name} />
-      <meta property="og:title" content={resolvedTitle} />
-      <meta property="og:description" content={resolvedDescription} />
+      {/* Canonical URL */}
+      <link rel="canonical" href={fullUrl} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content={config.ogType} />
       <meta property="og:url" content={fullUrl} />
-      <meta property="og:image" content={fullImageUrl} />
+      <meta property="og:title" content={config.title} />
+      <meta property="og:description" content={config.description} />
+      <meta property="og:image" content={defaultImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta
-        property="og:image:alt"
-        content={`${SITE.name} — ${SITE.tagline}`}
-      />
-      <meta property="og:locale" content={SITE.locale} />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:locale" content="en_KE" />
 
-      {/* ── Twitter Card ─────────────────────────── */}
+      {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={SITE.twitterHandle} />
-      <meta name="twitter:creator" content={SITE.twitterHandle} />
-      <meta name="twitter:title" content={resolvedTitle} />
-      <meta name="twitter:description" content={resolvedDescription} />
-      <meta name="twitter:image" content={fullImageUrl} />
-      <meta
-        name="twitter:image:alt"
-        content={`${SITE.name} — ${SITE.tagline}`}
-      />
+      <meta name="twitter:url" content={fullUrl} />
+      <meta name="twitter:title" content={config.title} />
+      <meta name="twitter:description" content={config.description} />
+      <meta name="twitter:image" content={defaultImage} />
 
-      {/* ── JSON-LD Structured Data ───────────────── */}
-      {resolvedSchema && (
-        <script type="application/ld+json">
-          {JSON.stringify(resolvedSchema)}
-        </script>
-      )}
+      {/* Geo Tags for Kenyan SEO */}
+      <meta name="geo.region" content="KE" />
+      <meta name="geo.placename" content="Nairobi, Kenya" />
+      <meta name="geo.position" content="-1.286389;36.817223" />
+      <meta name="ICBM" content="-1.286389, 36.817223" />
+
+      {/* Additional SEO */}
+      <meta name="theme-color" content="#4CAF50" />
+      <meta name="format-detection" content="telephone=no" />
+
+      {/* Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify(organizationSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(websiteSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(localBusinessSchema)}
+      </script>
     </Helmet>
   );
 };
