@@ -7,11 +7,8 @@
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
 
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/assets/native-bounty-logo.jpeg"
-    />
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="/assets/native_StoreLogo.png" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -20,6 +17,15 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#4CAF50" />
 
+    <!-- Performance: Preconnect & Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="/assets/native-bounty-logo.jpeg" />
+
+    <!-- Fallback SEO (will be overridden by Helmet) -->
     <title>Native Bounty | Connecting Kenyan Farmers to Markets</title>
     <meta
       name="description"
@@ -30,11 +36,12 @@
       content="Native Bounty, farmers Kenya, agricultural logistics, farm to market, organic farming"
     />
 
-    <link rel="canonical" href="https://nativebounty.co.ke/" />
+    <!-- Canonical (fallback) -->
+    <link rel="canonical" href="https://www.nativebounty.co.ke/" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph (fallback) -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://nativebounty.co.ke/" />
+    <meta property="og:url" content="https://www.nativebounty.co.ke/" />
     <meta
       property="og:title"
       content="Native Bounty | Connecting Kenyan Farmers to Markets"
@@ -45,12 +52,14 @@
     />
     <meta
       property="og:image"
-      content="https://nativebounty.co.ke/assets/og-image.jpg"
+      content="https://www.nativebounty.co.ke/assets/og-image.jpg"
     />
+    <meta property="og:site_name" content="Native Bounty" />
+    <meta property="og:locale" content="en_KE" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card (fallback) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://nativebounty.co.ke/" />
+    <meta name="twitter:url" content="https://www.nativebounty.co.ke/" />
     <meta
       name="twitter:title"
       content="Native Bounty | Connecting Kenyan Farmers to Markets"
@@ -61,15 +70,18 @@
     />
     <meta
       name="twitter:image"
-      content="https://nativebounty.co.ke/assets/twitter-image.jpg"
+      content="https://www.nativebounty.co.ke/assets/twitter-image.jpg"
     />
 
     <!-- Geo Tags -->
     <meta name="geo.region" content="KE" />
     <meta name="geo.placename" content="Nairobi, Kenya" />
+    <meta name="geo.position" content="-1.286389;36.817223" />
+    <meta name="ICBM" content="-1.286389, 36.817223" />
 
-    <!-- Structured Data will be injected by React Helmet -->
-    <script type="module" crossorigin src="/native-bounty-frontend/assets/index-DpfyH5r8.js"></script>
+    <!-- Security -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <script type="module" crossorigin src="/native-bounty-frontend/assets/index-CT_whPRj.js"></script>
     <link rel="stylesheet" crossorigin href="/native-bounty-frontend/assets/index-CNWZbtbV.css">
   </head>
   <body>

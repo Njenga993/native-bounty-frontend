@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Sitemap: https://www.nativebounty.co.ke/sitemap.xml
+Crawl-delay: 1
+Host: https://www.nativebounty.co.ke
