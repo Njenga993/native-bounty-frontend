@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import ContactPage from "./pages/Contact";
 import BackToTop from "./components/BacktoTop";
+import WhatsAppButton from "./components/WhatsAppButton";
 import PageLoader from "./components/PageLoader";
 import { HelmetProvider } from "react-helmet-async";
 
@@ -48,7 +49,7 @@ const App = () => {
           <Route path="/network" element={<div>Network</div>} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
-
+        <WhatsAppButton />
         <BackToTop />
         <Footer />
       </BrowserRouter>

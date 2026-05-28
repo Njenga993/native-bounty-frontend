@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "../styles/about.css";
-import AboutImg1 from "../assets/about-image-1.webp";
-import AboutImg2 from "../assets/about-image-2.webp";
+import AboutImg1 from "../assets/truck03.jpeg";
+import AboutImg2 from "../assets/avocado59.jpeg";
 
 /* ── Scroll-reveal hook ── */
 const useReveal = () => {

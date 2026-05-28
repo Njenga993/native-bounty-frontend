@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import heroImage from "../assets/vegetables.jpg";
+import heroImage from "../assets/mercy25.jpeg";
 import "../styles/hero.css";
 
 const Hero = () => {

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import SEO from "../components/SEO";
+import Cabbage from "../assets/cabbage28.jpeg";
+import Harvest from "../assets/harvest59.jpeg";
 import "../styles/servicespage.css";
 import {
   Truck,
@@ -505,7 +507,7 @@ const ServicesPage = () => {
                 </span>
                 <div className="nb-sp__case-dark-inner">
                   <img
-                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700&q=80"
+                    src={Cabbage}
                     alt="Kenyan farmland at sunrise — smallholder vegetable farm in Nakuru"
                     className="nb-sp__case-img"
                     loading="lazy"
@@ -575,7 +577,7 @@ const ServicesPage = () => {
                 </span>
                 <div className="nb-sp__case-dark-inner">
                   <img
-                    src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=700&q=80"
+                    src={Harvest}
                     alt="Fresh organic produce market stall — vegetables sourced from Kenyan farms"
                     className="nb-sp__case-img"
                     loading="lazy"

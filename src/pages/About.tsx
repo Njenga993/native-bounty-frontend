@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import SEO from "../components/SEO";
 import "../styles/aboutpage.css";
-import AboutImg1 from "../assets/about-image-1.webp";
-import AboutImg2 from "../assets/about-image-2.webp";
-import ImpactImg from "../assets/about-image-2.webp";
+import AboutImg1 from "../assets/truck03.jpeg";
+import AboutImg2 from "../assets/avocado59.jpeg";
+import ImpactImg from "../assets/impact27.jpeg";
 
 /* ── Scroll-reveal hook ── */
 const useReveal = (delay = 0) => {
