@@ -12,7 +12,6 @@
   --cream:       #F7F3EB;
   --white:       #FFFFFF;
   --stone:       #6B6455;
-  --rule:        rgba(255,255,255,0.12);
 }
 
 /* ============================================
@@ -31,7 +30,7 @@
 /* ============================================
    SECTION — two-column grid
 ============================================ */
-.nb-im {
+.nb-bt {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 640px;
@@ -42,7 +41,7 @@
 /* ============================================
    LEFT COLUMN
 ============================================ */
-.nb-im__left {
+.nb-bt__left {
   position: relative;
   background: var(--forest-deep);
   overflow: hidden;
@@ -50,8 +49,7 @@
   align-items: stretch;
 }
 
-/* CSS field-grid texture */
-.nb-im__texture {
+.nb-bt__texture {
   position: absolute;
   inset: 0;
   background-image:
@@ -70,8 +68,7 @@
   pointer-events: none;
 }
 
-/* Amber left border */
-.nb-im__left::before {
+.nb-bt__left::before {
   content: '';
   position: absolute;
   left: 0;
@@ -81,7 +78,7 @@
   background: var(--amber);
 }
 
-.nb-im__left-inner {
+.nb-bt__left-inner {
   position: relative;
   z-index: 2;
   padding: 5rem 3.5rem 5rem 4rem;
@@ -90,8 +87,7 @@
   justify-content: center;
 }
 
-/* Eyebrow */
-.nb-im__eyebrow {
+.nb-bt__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -103,7 +99,7 @@
   margin-bottom: 2rem;
 }
 
-.nb-im__eyebrow-line {
+.nb-bt__eyebrow-line {
   display: inline-block;
   width: 26px;
   height: 2px;
@@ -111,8 +107,7 @@
   flex-shrink: 0;
 }
 
-/* Heading */
-.nb-im__heading {
+.nb-bt__heading {
   font-family: 'Fraunces', serif;
   font-size: clamp(3rem, 5.5vw, 5rem);
   font-weight: 900;
@@ -122,13 +117,12 @@
   letter-spacing: -0.03em;
 }
 
-.nb-im__heading em {
+.nb-bt__heading em {
   font-style: italic;
   color: var(--amber-light);
 }
 
-/* Statement */
-.nb-im__statement {
+.nb-bt__statement {
   font-size: 0.95rem;
   line-height: 1.85;
   color: rgba(255,255,255,0.55);
@@ -137,8 +131,7 @@
   margin-bottom: 2rem;
 }
 
-/* Divider */
-.nb-im__divider {
+.nb-bt__divider {
   width: 40px;
   height: 1px;
   background: var(--amber);
@@ -146,10 +139,9 @@
   opacity: 0.6;
 }
 
-/* Footnote */
-.nb-im__footnote {
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.28);
+.nb-bt__footnote {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1.6;
@@ -157,16 +149,15 @@
 }
 
 /* ============================================
-   RIGHT COLUMN — metric list
+   RIGHT COLUMN — tier list
 ============================================ */
-.nb-im__right {
+.nb-bt__right {
   display: flex;
   flex-direction: column;
   border-left: 1px solid rgba(255,255,255,0.08);
 }
 
-/* ── Single metric row ── */
-.nb-im__metric {
+.nb-bt__tier {
   flex: 1;
   padding: 2.5rem 3.5rem;
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -175,19 +166,17 @@
   justify-content: center;
   position: relative;
   transition: background 0.3s ease;
-  cursor: default;
 }
 
-.nb-im__metric--last {
+.nb-bt__tier--last {
   border-bottom: none;
 }
 
-.nb-im__metric:hover {
+.nb-bt__tier:hover {
   background: rgba(255,255,255,0.04);
 }
 
-/* Hover: amber left accent */
-.nb-im__metric::before {
+.nb-bt__tier::before {
   content: '';
   position: absolute;
   left: 0;
@@ -200,83 +189,105 @@
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.nb-im__metric:hover::before {
+.nb-bt__tier:hover::before {
   transform: scaleY(1);
 }
 
-/* Number */
-.nb-im__metric-number {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.8rem, 4.5vw, 4rem);
-  font-weight: 900;
-  color: var(--white);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.75rem;
+.nb-bt__tier-icon {
+  color: var(--amber-light);
+  margin-bottom: 1rem;
+  display: flex;
 }
 
-/* Amber thin rule */
-.nb-im__metric-rule {
+.nb-bt__tier-rule {
   width: 32px;
   height: 2px;
   background: var(--amber);
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.9rem;
 }
 
-/* Label */
-.nb-im__metric-label {
-  font-size: 0.8rem;
+.nb-bt__tier-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.nb-bt__tier-audience {
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--white);
-  margin-bottom: 0.35rem;
+  color: var(--amber-light);
+  margin-bottom: 0.9rem;
 }
 
-/* Context */
-.nb-im__metric-context {
-  font-size: 0.76rem;
-  color: rgba(255,255,255,0.38);
+.nb-bt__tier-desc {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.5);
   font-weight: 300;
-  line-height: 1.5;
+  max-width: 460px;
+  margin-bottom: 1.4rem;
+}
+
+.nb-bt__tier-btn {
+  align-self: flex-start;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: var(--amber-light);
+  border: none;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nb-bt__tier-btn:hover {
+  background: var(--amber);
 }
 
 /* ============================================
    RESPONSIVE
 ============================================ */
 @media (max-width: 900px) {
-  .nb-im {
+  .nb-bt {
     grid-template-columns: 1fr;
   }
 
-  .nb-im__left-inner {
+  .nb-bt__left-inner {
     padding: 4rem 2rem 3rem 2.5rem;
   }
 
-  .nb-im__heading {
+  .nb-bt__heading {
     font-size: clamp(2.8rem, 12vw, 4rem);
   }
 
-  .nb-im__right {
+  .nb-bt__right {
     border-left: none;
     border-top: 1px solid rgba(255,255,255,0.08);
   }
 
-  .nb-im__metric {
+  .nb-bt__tier {
     padding: 2rem 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .nb-im__left-inner {
+  .nb-bt__left-inner {
     padding: 3.5rem 1.5rem 2.5rem 2rem;
   }
 
-  .nb-im__metric {
+  .nb-bt__tier {
     padding: 1.8rem 1.5rem;
   }
 
-  .nb-im__metric-number {
-    font-size: 2.8rem;
+  .nb-bt__tier-name {
+    font-size: 1.4rem;
   }
 }

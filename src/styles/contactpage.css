@@ -39,12 +39,12 @@
 }
 
 /* ============================================
-   PAGE HERO — compact, accounts for fixed navbar
+   PAGE HERO
 ============================================ */
 .nb-cp__hero {
   position: relative;
   background: var(--forest-deep);
-  padding-top: var(--navbar-h);        /* clears the fixed navbar */
+  padding-top: var(--navbar-h);
   min-height: calc(var(--navbar-h) + 300px);
   display: flex;
   flex-direction: column;
@@ -52,7 +52,6 @@
   overflow: hidden;
 }
 
-/* CSS grid texture */
 .nb-cp__hero-texture {
   position: absolute;
   inset: 0;
@@ -62,7 +61,6 @@
   pointer-events: none;
 }
 
-/* Amber left border */
 .nb-cp__hero::before {
   content: '';
   position: absolute;
@@ -80,7 +78,6 @@
   padding: 3rem 4vw 3.5rem;
 }
 
-/* Breadcrumb */
 .nb-cp__breadcrumb {
   display: flex;
   align-items: center;
@@ -106,7 +103,6 @@
   color: var(--amber-light);
 }
 
-/* Hero heading */
 .nb-cp__hero-heading {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.8rem, 6vw, 5rem);
@@ -132,7 +128,6 @@
   animation: heroIn 0.7s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Amber bottom edge */
 .nb-cp__hero-edge {
   height: 3px;
   background: var(--amber);
@@ -258,8 +253,8 @@ a.nb-cp__strip-item:hover .nb-cp__strip-val { color: var(--forest); }
   flex-shrink: 0;
 }
 
-/* ── Form heading ── */
-.nb-cp__form-heading,
+/* ── Info column (left) ── */
+.nb-cp__info-heading,
 .nb-cp__loc-heading {
   font-family: 'Fraunces', serif;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
@@ -270,154 +265,107 @@ a.nb-cp__strip-item:hover .nb-cp__strip-val { color: var(--forest); }
   margin-bottom: 2rem;
 }
 
-.nb-cp__form-heading em,
+.nb-cp__info-heading em,
 .nb-cp__loc-heading em {
   font-style: italic;
   color: var(--amber);
 }
 
-/* ── Alert banners ── */
-.nb-cp__alert {
+.nb-cp__info-lead {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--stone);
+  font-weight: 300;
+  max-width: 460px;
+  margin-bottom: 2.5rem;
+}
+
+.nb-cp__contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.nb-cp__contact-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.2rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border-left: 3px solid;
-}
-
-.nb-cp__alert--success {
-  background: rgba(21,46,30,0.06);
-  color: var(--forest);
-  border-color: var(--forest);
-}
-
-.nb-cp__alert--error {
-  background: rgba(180,30,30,0.05);
-  color: #8B1A1A;
-  border-color: #8B1A1A;
-}
-
-/* ── Form ── */
-.nb-cp__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.nb-cp__row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-}
-
-.nb-cp__field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.nb-cp__field label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--charcoal);
-}
-
-.nb-cp__field label span { color: var(--amber); }
-
-.nb-cp__field input,
-.nb-cp__field select,
-.nb-cp__field textarea {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 300;
-  color: var(--charcoal);
+  gap: 1rem;
+  padding: 0.8rem 1rem;
   background: var(--white);
   border: 1px solid var(--rule);
-  border-radius: 0;
-  padding: 0.85rem 1rem;
   transition: border-color 0.2s, box-shadow 0.2s;
-  outline: none;
-  width: 100%;
-  -webkit-appearance: none;
-  appearance: none;
 }
 
-.nb-cp__field select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%236B6455' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-  cursor: pointer;
+.nb-cp__contact-item:hover {
+  border-color: var(--amber-light);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
-.nb-cp__field textarea { resize: vertical; min-height: 140px; }
-
-.nb-cp__field input:focus,
-.nb-cp__field select:focus,
-.nb-cp__field textarea:focus {
-  border-color: var(--forest);
-  box-shadow: 0 0 0 3px rgba(21,46,30,0.07);
+.nb-cp__contact-icon {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--amber);
+  flex-shrink: 0;
 }
 
-.nb-cp__field--err input,
-.nb-cp__field--err textarea {
-  border-color: #B91C1C;
+.nb-cp__contact-label {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 2px;
 }
 
-.nb-cp__err-msg {
-  font-size: 0.72rem;
-  color: #B91C1C;
+.nb-cp__contact-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--forest);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nb-cp__contact-link:hover {
+  color: var(--amber);
+}
+
+.nb-cp__contact-text {
+  font-size: 0.95rem;
   font-weight: 400;
+  color: var(--charcoal);
 }
 
-.nb-cp__field input::placeholder,
-.nb-cp__field textarea::placeholder { color: rgba(107,100,85,0.5); }
-
-/* Submit button */
-.nb-cp__submit {
+/* ── WhatsApp CTA ── */
+.nb-cp__whatsapp {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  font-family: 'Outfit', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  cursor: pointer;
-  border: none;
-  padding: 1rem 2rem;
+  text-decoration: none;
+  color: var(--forest);
+  border: 1px solid var(--rule);
+  padding: 0.8rem 1.4rem;
+  background: var(--white);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.nb-cp__whatsapp:hover {
   background: var(--forest);
-  color: var(--cream);
-  border-radius: 0;
-  transition: background 0.2s;
-  align-self: flex-start;
-  margin-top: 0.4rem;
+  border-color: var(--forest);
+  color: var(--amber-light);
 }
 
-.nb-cp__submit:hover:not(:disabled) { background: var(--forest-mid); }
-
-.nb-cp__submit:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-}
-
-.nb-cp__spinner {
-  width: 14px;
-  height: 14px;
-  border: 1.5px solid rgba(255,255,255,0.3);
-  border-top-color: var(--white);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ── Location column ── */
+/* ── Location column (right) ── */
 .nb-cp__location-card {
   background: var(--white);
   border: 1px solid var(--rule);
@@ -492,33 +440,9 @@ a.nb-cp__strip-item:hover .nb-cp__strip-val { color: var(--forest); }
   height: 260px;
   border: 1px solid var(--rule);
   overflow: hidden;
-  margin-bottom: 1.2rem;
 }
 
-.nb-cp__map iframe { display: block; }
-
-/* WhatsApp CTA */
-.nb-cp__whatsapp {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--forest);
-  border: 1px solid var(--rule);
-  padding: 0.8rem 1.4rem;
-  background: var(--white);
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
-}
-
-.nb-cp__whatsapp:hover {
-  background: var(--forest);
-  border-color: var(--forest);
-  color: var(--amber-light);
-}
+.nb-cp__map iframe { display: block; width: 100%; height: 100%; }
 
 /* ============================================
    FAQ SECTION
@@ -567,7 +491,6 @@ a.nb-cp__strip-item:hover .nb-cp__strip-val { color: var(--forest); }
   color: var(--amber);
 }
 
-/* FAQ list */
 .nb-cp__faq-list {
   display: flex;
   flex-direction: column;
@@ -699,8 +622,6 @@ a.nb-cp__strip-item:hover .nb-cp__strip-val { color: var(--forest); }
 }
 
 @media (max-width: 600px) {
-  .nb-cp__row { grid-template-columns: 1fr; }
-
   .nb-cp__strip-item { width: 100%; }
 
   .nb-cp__body { padding: 3rem 0; }

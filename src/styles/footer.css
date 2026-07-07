@@ -5,88 +5,103 @@
 ============================================ */
 :root {
   --forest:       #152E1E;
-  --forest-deep:  #0D1F14;
   --forest-mid:   #1F4A2E;
   --amber:        #D4920A;
   --amber-light:  #F5C842;
-  --cream:        #F7F3EB;
+  --cream:        #FEFCF5;
+  --cream-deep:   #F3EEE3;
   --white:        #FFFFFF;
-  --stone:        #6B6455;
-  --rule-dark:    rgba(255,255,255,0.09);
+  --muted:        #6B6455;
+  --rule:         #E2DDD4;
 }
 
 /* ============================================
    FOOTER SHELL
 ============================================ */
 .nb-footer {
-  background: var(--forest-deep);
+  background: var(--cream);
   font-family: 'Outfit', sans-serif;
-  color: var(--white);
+  color: var(--forest);
   border-top: 4px solid var(--amber);
 }
 
 /* ============================================
-   TOP STATEMENT BAND
+   NEWSLETTER BAND
 ============================================ */
-.nb-footer__statement {
-  border-bottom: 1px solid var(--rule-dark);
-  position: relative;
+.nb-footer__newsletter {
+  background: var(--forest);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.nb-footer__statement-inner {
+.nb-footer__newsletter-inner {
   max-width: 1260px;
   margin: 0 auto;
-  padding: 4rem 4vw 3.5rem;
+  padding: 2.5rem 4vw;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
 }
 
-.nb-footer__statement-text {
+.nb-footer__newsletter-label {
   font-family: 'Fraunces', serif;
-  font-size: clamp(2.6rem, 6vw, 5rem);
-  font-weight: 900;
-  line-height: 1.05;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--white);
-  letter-spacing: -0.03em;
+  display: block;
+  margin-bottom: 0.3rem;
 }
 
-.nb-footer__statement-text em {
-  font-style: italic;
-  color: var(--amber-light);
+.nb-footer__newsletter-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
 }
 
-/* CTA link */
-.nb-footer__statement-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+.nb-footer__newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.nb-footer__newsletter-input {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  min-width: 240px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.nb-footer__newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.nb-footer__newsletter-input:focus {
+  border-color: var(--amber);
+}
+
+.nb-footer__newsletter-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-decoration: none;
   color: var(--forest);
   background: var(--amber-light);
-  padding: 0.85rem 1.6rem;
-  flex-shrink: 0;
-  align-self: center;
-  transition: background 0.2s, color 0.2s;
+  border: none;
+  padding: 0 1.4rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
 }
 
-.nb-footer__statement-cta:hover {
+.nb-footer__newsletter-btn:hover {
   background: var(--amber);
-  color: var(--white);
-}
-
-/* Decorative amber rule at base of statement */
-.nb-footer__statement-rule {
-  height: 1px;
-  background: var(--amber);
-  opacity: 0.3;
 }
 
 /* ============================================
@@ -101,20 +116,16 @@
   gap: 3.5rem;
 }
 
-/* ── Column base ── */
 .nb-footer__col {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
-/* ── Brand column ── */
 .nb-footer__logo-name {
   font-family: 'Fraunces', serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--white);
-  letter-spacing: -0.01em;
+  color: var(--forest);
   margin-bottom: 0.2rem;
   display: block;
 }
@@ -124,7 +135,7 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: var(--muted);
   display: block;
   margin-bottom: 1.4rem;
 }
@@ -132,13 +143,12 @@
 .nb-footer__tagline {
   font-size: 0.83rem;
   line-height: 1.8;
-  color: rgba(255,255,255,0.45);
+  color: var(--muted);
   font-weight: 300;
   max-width: 280px;
   margin-bottom: 1.8rem;
 }
 
-/* Social icons */
 .nb-footer__social {
   display: flex;
   gap: 0.6rem;
@@ -147,52 +157,48 @@
 .nb-footer__social-link {
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid var(--rule);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.45);
+  color: var(--muted);
   text-decoration: none;
   transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
 .nb-footer__social-link:hover {
   border-color: var(--amber);
-  color: var(--amber-light);
-  background: rgba(255,255,255,0.04);
+  color: var(--forest);
+  background: var(--cream-deep);
 }
 
-/* ── Column label ── */
 .nb-footer__col-label {
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: var(--muted);
   margin-bottom: 1.4rem;
   display: block;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--rule-dark);
+  border-bottom: 1px solid var(--rule);
 }
 
-/* ── Nav links ── */
 .nb-footer__nav {
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .nb-footer__nav-link {
   display: block;
   font-size: 0.88rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.55);
+  color: var(--muted);
   text-decoration: none;
   padding: 0.55rem 0;
-  border-bottom: 1px solid var(--rule-dark);
+  border-bottom: 1px solid var(--rule);
   transition: color 0.2s, padding-left 0.2s;
   position: relative;
 }
@@ -210,7 +216,7 @@
 }
 
 .nb-footer__nav-link:hover {
-  color: var(--white);
+  color: var(--forest);
   padding-left: 1rem;
 }
 
@@ -218,13 +224,11 @@
   width: 0.65rem;
 }
 
-/* ── Contact list ── */
 .nb-footer__contact-list {
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .nb-footer__contact-list li {
@@ -232,7 +236,7 @@
   flex-direction: column;
   gap: 1px;
   padding: 0.75rem 0;
-  border-bottom: 1px solid var(--rule-dark);
+  border-bottom: 1px solid var(--rule);
 }
 
 .nb-footer__contact-key {
@@ -240,26 +244,26 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.28);
+  color: var(--muted);
+  opacity: 0.7;
 }
 
 .nb-footer__contact-val {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
+  color: var(--forest);
   font-weight: 400;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 a.nb-footer__contact-val:hover {
-  color: var(--amber-light);
+  color: var(--amber);
 }
 
-/* ── Partnership column ── */
 .nb-footer__partner-text {
   font-size: 0.82rem;
   line-height: 1.75;
-  color: rgba(255,255,255,0.42);
+  color: var(--muted);
   font-weight: 300;
   margin-bottom: 1.3rem;
 }
@@ -290,21 +294,21 @@ a.nb-footer__contact-val:hover {
 
 .nb-footer__partner-btn--outline {
   background: transparent;
-  color: rgba(255,255,255,0.6);
-  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--muted);
+  border: 1px solid var(--rule);
 }
 
 .nb-footer__partner-btn--outline:hover {
-  background: rgba(255,255,255,0.05);
-  color: var(--white);
-  border-color: rgba(255,255,255,0.4);
+  background: var(--cream-deep);
+  color: var(--forest);
+  border-color: var(--amber);
 }
 
 /* ============================================
    BOTTOM BAR
 ============================================ */
 .nb-footer__bottom {
-  border-top: 1px solid var(--rule-dark);
+  border-top: 1px solid var(--rule);
 }
 
 .nb-footer__bottom-inner {
@@ -318,14 +322,11 @@ a.nb-footer__contact-val:hover {
   flex-wrap: wrap;
 }
 
-/* Copyright */
 .nb-footer__copy {
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.28);
-  font-weight: 400;
+  color: var(--muted);
 }
 
-/* Live badge */
 .nb-footer__live {
   display: flex;
   align-items: center;
@@ -333,7 +334,7 @@ a.nb-footer__contact-val:hover {
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.35);
+  color: var(--muted);
   text-transform: uppercase;
 }
 
@@ -341,26 +342,23 @@ a.nb-footer__contact-val:hover {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--amber-light);
+  background: var(--amber);
   animation: pulse 2.2s ease-in-out infinite;
   flex-shrink: 0;
 }
 
-/* Designed by credit */
 .nb-footer__credit {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   font-size: 0.7rem;
-  font-weight: 400;
-  color: rgba(255,255,255,0.28);
+  color: var(--muted);
   text-decoration: none;
-  letter-spacing: 0.04em;
   transition: color 0.2s;
 }
 
 .nb-footer__credit:hover {
-  color: rgba(255,255,255,0.7);
+  color: var(--forest);
 }
 
 .nb-footer__credit-name {
@@ -376,12 +374,9 @@ a.nb-footer__contact-val:hover {
   color: var(--amber-light);
 }
 
-/* ============================================
-   ANIMATIONS
-============================================ */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0.35; }
+  50%       { opacity: 0.4; }
 }
 
 /* ============================================
@@ -392,48 +387,39 @@ a.nb-footer__contact-val:hover {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
   }
-
   .nb-footer__col--brand {
     grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 700px) {
-  .nb-footer__statement-inner {
+  .nb-footer__newsletter-inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
-    padding: 3rem 1.5rem 2.5rem;
+    padding: 2.5rem 1.5rem;
   }
-
+  .nb-footer__newsletter-form {
+    width: 100%;
+  }
+  .nb-footer__newsletter-input {
+    flex: 1;
+    min-width: 0;
+  }
   .nb-footer__grid {
     grid-template-columns: 1fr;
     padding: 3rem 1.5rem;
     gap: 2rem;
   }
-
   .nb-footer__col--brand {
     grid-column: auto;
   }
-
   .nb-footer__bottom-inner {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.8rem;
     padding: 1.2rem 1.5rem;
   }
-
   .nb-footer__live {
     order: -1;
-  }
-}
-
-@media (max-width: 480px) {
-  .nb-footer__br {
-    display: none;
-  }
-
-  .nb-footer__statement-text {
-    font-size: clamp(2.2rem, 11vw, 3rem);
   }
 }

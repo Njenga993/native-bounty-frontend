@@ -4,44 +4,95 @@
    TOKENS
 ============================================ */
 :root {
-  --forest:        #152E1E;
-  --forest-mid:    #1F4A2E;
-  --forest-light:  #2A6040;
-  --amber:         #D4920A;
-  --amber-light:   #F5C842;
-  --cream:         #FEFCF5;
-  --white:         #FFFFFF;
-  --nav-trans-text:#FFFFFF;
-  --nav-solid-text:#152E1E;
-  --muted:         #6B6455;
-  --rule:          #E2DDD4;
+  --forest:       #152E1E;
+  --forest-mid:   #1F4A2E;
+  --amber:        #D4920A;
+  --amber-light:  #F5C842;
+  --cream:        #FEFCF5;
+  --cream-deep:   #F3EEE3;
+  --white:        #FFFFFF;
+  --muted:        #6B6455;
+  --rule:         #E2DDD4;
 }
 
-/* Body scroll lock */
 .nb-scroll-lock {
   overflow: hidden;
 }
 
 /* ============================================
-   NAVBAR SHELL
+   UTILITY BAR
 ============================================ */
-.nb-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 900;
+.nb-utility {
+  background: var(--forest);
   font-family: 'Outfit', sans-serif;
-  margin-bottom: 2rem;
-  /* Transparent state */
-  background: transparent;
-  transition: background 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Scrolled — solid white */
+.nb-utility__inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nb-utility__msg {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.nb-utility__right {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.nb-utility__link {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nb-utility__link:hover {
+  color: var(--amber-light);
+}
+
+.nb-utility__social {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.nb-utility__social-link {
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  transition: color 0.2s ease;
+}
+
+.nb-utility__social-link:hover {
+  color: var(--amber-light);
+}
+
+/* ============================================
+   NAVBAR SHELL — always solid
+============================================ */
+.nb-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+  transition: box-shadow 0.3s ease;
+}
+
 .nb-navbar--scrolled {
-  background: var(--white);
-  box-shadow: 0 1px 0 var(--rule);
+  box-shadow: 0 2px 12px rgba(21, 46, 30, 0.06);
 }
 
 /* ============================================
@@ -51,25 +102,11 @@
   max-width: 1260px;
   margin: 0 auto;
   padding: 0 2rem;
-  height: 72px;
+  height: 76px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-}
-
-/* ============================================
-   ACCENT LINE (bottom border)
-============================================ */
-.nb-navbar__accent-line {
-  height: 2px;
-  background: var(--amber);
-  width: 0;
-  transition: width 0.4s ease;
-}
-
-.nb-navbar--scrolled .nb-navbar__accent-line {
-  width: 100%;
 }
 
 /* ============================================
@@ -88,13 +125,8 @@
   height: 42px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid var(--rule);
   flex-shrink: 0;
-  transition: border-color 0.35s ease;
-}
-
-.nb-navbar--scrolled .nb-navbar__logo-mark {
-  border-color: var(--rule);
 }
 
 .nb-navbar__logo-mark img {
@@ -114,14 +146,9 @@
   font-family: 'Fraunces', serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--nav-trans-text);
+  color: var(--forest);
   line-height: 1;
   letter-spacing: -0.01em;
-  transition: color 0.35s ease;
-}
-
-.nb-navbar--scrolled .nb-navbar__logo-primary {
-  color: var(--forest);
 }
 
 .nb-navbar__logo-sub {
@@ -129,11 +156,6 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  transition: color 0.35s ease;
-}
-
-.nb-navbar--scrolled .nb-navbar__logo-sub {
   color: var(--muted);
 }
 
@@ -153,13 +175,9 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgba(255,255,255,0.85);
+  color: var(--muted);
   padding: 0.5rem 0.9rem;
   transition: color 0.2s ease;
-}
-
-.nb-navbar--scrolled .nb-navbar__link {
-  color: var(--muted);
 }
 
 .nb-navbar__link::after {
@@ -176,10 +194,6 @@
 }
 
 .nb-navbar__link:hover {
-  color: var(--white);
-}
-
-.nb-navbar--scrolled .nb-navbar__link:hover {
   color: var(--forest);
 }
 
@@ -189,10 +203,6 @@
 }
 
 .nb-navbar__link--active {
-  color: var(--white) !important;
-}
-
-.nb-navbar--scrolled .nb-navbar__link--active {
   color: var(--forest) !important;
 }
 
@@ -210,7 +220,6 @@
   color: var(--forest);
   background: var(--amber-light);
   padding: 0.65rem 1.4rem;
-  border-radius: 0;
   transition: background 0.2s ease, color 0.2s ease;
   white-space: nowrap;
 }
@@ -241,17 +250,12 @@
   display: block;
   width: 22px;
   height: 1.5px;
-  background: var(--white);
+  background: var(--forest);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease, background 0.35s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: center;
 }
 
-.nb-navbar--scrolled .nb-bar {
-  background: var(--forest);
-}
-
-/* Morph to X on open */
 .nb-navbar__hamburger--open .nb-bar--top {
   transform: translateY(6.5px) rotate(45deg);
 }
@@ -304,7 +308,6 @@
   transform: translateX(0);
 }
 
-/* Drawer header */
 .nb-drawer__header {
   display: flex;
   align-items: center;
@@ -318,7 +321,6 @@
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--forest);
-  letter-spacing: -0.01em;
 }
 
 .nb-drawer__close {
@@ -340,7 +342,6 @@
   color: var(--white);
 }
 
-/* Drawer link list */
 .nb-drawer__links {
   list-style: none;
   padding: 1.5rem 0;
@@ -367,7 +368,6 @@
   color: var(--muted);
   border-left: 3px solid transparent;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
-  letter-spacing: 0.01em;
 }
 
 .nb-drawer__link:hover {
@@ -390,7 +390,6 @@
   min-width: 22px;
 }
 
-/* Drawer footer */
 .nb-drawer__footer {
   padding: 1.5rem 1.8rem 2rem;
   border-top: 1px solid var(--rule);
@@ -425,9 +424,6 @@
   font-weight: 300;
 }
 
-/* ============================================
-   ANIMATIONS
-============================================ */
 @keyframes drawerLinkIn {
   from { opacity: 0; transform: translateX(16px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -444,6 +440,9 @@
   .nb-navbar__hamburger {
     display: flex;
   }
+  .nb-utility__msg {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -451,6 +450,9 @@
     padding: 0 1.2rem;
   }
   .nb-navbar__logo-sub {
+    display: none;
+  }
+  .nb-utility__link:first-child {
     display: none;
   }
 }

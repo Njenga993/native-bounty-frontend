@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,900&family=Outfit:wght@300;400;500;600&display=swap');
 
-/* ============================================
-   TOKENS
-============================================ */
 :root {
   --forest:       #152E1E;
   --forest-mid:   #1F4A2E;
@@ -15,9 +12,6 @@
   --charcoal:     #1C1C1A;
 }
 
-/* ============================================
-   SCROLL REVEAL
-============================================ */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -28,10 +22,7 @@
   transform: translateY(0);
 }
 
-/* ============================================
-   SECTION SHELL
-============================================ */
-.nb-services {
+.nb-hiw {
   background: var(--cream);
   font-family: 'Outfit', sans-serif;
   overflow: hidden;
@@ -40,16 +31,16 @@
 /* ============================================
    INTRO PANEL
 ============================================ */
-.nb-services__intro {
+.nb-hiw__intro {
   padding: 7rem 4vw 4rem;
 }
 
-.nb-services__intro-inner {
+.nb-hiw__intro-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.nb-services__eyebrow {
+.nb-hiw__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -61,7 +52,7 @@
   margin-bottom: 1.6rem;
 }
 
-.nb-services__eyebrow-line {
+.nb-hiw__eyebrow-line {
   display: inline-block;
   width: 28px;
   height: 2px;
@@ -69,7 +60,7 @@
   flex-shrink: 0;
 }
 
-.nb-services__heading {
+.nb-hiw__heading {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 900;
@@ -80,12 +71,12 @@
   max-width: 640px;
 }
 
-.nb-services__heading em {
+.nb-hiw__heading em {
   font-style: italic;
   color: var(--amber);
 }
 
-.nb-services__lead {
+.nb-hiw__lead {
   font-size: 1rem;
   line-height: 1.85;
   color: var(--stone);
@@ -94,17 +85,16 @@
 }
 
 /* ============================================
-   SERVICE ROWS LIST
+   STEP ROWS LIST
 ============================================ */
-.nb-services__list {
+.nb-hiw__list {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 4vw 2rem;
   border-top: 1px solid var(--rule);
 }
 
-/* ── Single Row ── */
-.nb-service-row {
+.nb-step-row {
   position: relative;
   display: grid;
   grid-template-columns: 90px 1fr auto auto;
@@ -117,13 +107,12 @@
   transition: background 0.35s ease, border-color 0.35s ease;
 }
 
-.nb-service-row:hover {
+.nb-step-row:hover {
   background: var(--forest);
   border-color: transparent;
 }
 
-/* Ghost number behind everything */
-.nb-service-row__ghost {
+.nb-step-row__ghost {
   position: absolute;
   right: 3rem;
   top: 50%;
@@ -138,12 +127,11 @@
   transition: color 0.35s ease;
 }
 
-.nb-service-row:hover .nb-service-row__ghost {
+.nb-step-row:hover .nb-step-row__ghost {
   color: rgba(255,255,255,0.04);
 }
 
-/* Index — small number + icon */
-.nb-service-row__index {
+.nb-step-row__index {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -151,7 +139,7 @@
   flex-shrink: 0;
 }
 
-.nb-service-row__num {
+.nb-step-row__num {
   font-family: 'Fraunces', serif;
   font-size: 0.72rem;
   font-weight: 700;
@@ -161,28 +149,27 @@
   transition: color 0.35s ease;
 }
 
-.nb-service-row:hover .nb-service-row__num {
+.nb-step-row:hover .nb-step-row__num {
   color: var(--amber-light);
 }
 
-.nb-service-row__icon {
+.nb-step-row__icon {
   color: var(--forest-mid);
   display: flex;
   align-items: center;
   transition: color 0.35s ease;
 }
 
-.nb-service-row:hover .nb-service-row__icon {
+.nb-step-row:hover .nb-step-row__icon {
   color: var(--amber-light);
 }
 
-/* Content */
-.nb-service-row__content {
+.nb-step-row__content {
   flex: 1;
   min-width: 0;
 }
 
-.nb-service-row__title {
+.nb-step-row__title {
   font-family: 'Fraunces', serif;
   font-size: 1.45rem;
   font-weight: 700;
@@ -192,11 +179,11 @@
   transition: color 0.35s ease;
 }
 
-.nb-service-row:hover .nb-service-row__title {
+.nb-step-row:hover .nb-step-row__title {
   color: var(--white);
 }
 
-.nb-service-row__desc {
+.nb-step-row__desc {
   font-size: 0.88rem;
   line-height: 1.8;
   color: var(--stone);
@@ -205,12 +192,11 @@
   transition: color 0.35s ease;
 }
 
-.nb-service-row:hover .nb-service-row__desc {
+.nb-step-row:hover .nb-step-row__desc {
   color: rgba(255,255,255,0.62);
 }
 
-/* Tag pill */
-.nb-service-row__tag {
+.nb-step-row__tag {
   flex-shrink: 0;
   font-size: 0.65rem;
   font-weight: 600;
@@ -223,14 +209,14 @@
   transition: color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
 }
 
-.nb-service-row:hover .nb-service-row__tag {
+.nb-step-row:hover .nb-step-row__tag {
   color: var(--forest);
   background: var(--amber-light);
   border-color: var(--amber-light);
 }
 
-/* Arrow */
-.nb-service-row__arrow {
+/* Downward arrow — signals "flows into the next step" instead of a generic link-out chevron */
+.nb-step-row__arrow {
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -238,22 +224,22 @@
   transition: color 0.35s ease, transform 0.3s ease;
 }
 
-.nb-service-row:hover .nb-service-row__arrow {
+.nb-step-row:hover .nb-step-row__arrow {
   color: var(--amber-light);
-  transform: translateX(4px);
+  transform: translateY(3px);
 }
 
 /* ============================================
    CTA BANNER
 ============================================ */
-.nb-services__cta {
+.nb-hiw__cta {
   background: var(--forest);
   position: relative;
   margin-top: 4rem;
   overflow: hidden;
 }
 
-.nb-services__cta-bar {
+.nb-hiw__cta-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -262,7 +248,7 @@
   background: var(--amber);
 }
 
-.nb-services__cta-inner {
+.nb-hiw__cta-inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 4rem 4vw;
@@ -273,7 +259,7 @@
   flex-wrap: wrap;
 }
 
-.nb-services__cta-eyebrow {
+.nb-hiw__cta-eyebrow {
   display: block;
   font-size: 0.65rem;
   font-weight: 600;
@@ -283,23 +269,24 @@
   margin-bottom: 0.8rem;
 }
 
-.nb-services__cta-heading {
+.nb-hiw__cta-heading {
   font-family: 'Fraunces', serif;
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   font-weight: 700;
   color: var(--white);
   letter-spacing: -0.01em;
   line-height: 1.2;
+  max-width: 480px;
 }
 
-.nb-services__cta-actions {
+.nb-hiw__cta-actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   flex-shrink: 0;
 }
 
-.nb-services__btn {
+.nb-hiw__btn {
   font-family: 'Outfit', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
@@ -308,27 +295,26 @@
   cursor: pointer;
   border: none;
   padding: 0.9rem 1.8rem;
-  border-radius: 0;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.nb-services__btn--primary {
+.nb-hiw__btn--primary {
   background: var(--amber-light);
   color: var(--forest);
 }
 
-.nb-services__btn--primary:hover {
+.nb-hiw__btn--primary:hover {
   background: var(--amber);
   color: var(--white);
 }
 
-.nb-services__btn--ghost {
+.nb-hiw__btn--ghost {
   background: transparent;
   color: rgba(255,255,255,0.75);
   border: 1px solid rgba(255,255,255,0.25);
 }
 
-.nb-services__btn--ghost:hover {
+.nb-hiw__btn--ghost:hover {
   background: rgba(255,255,255,0.08);
   color: var(--white);
   border-color: rgba(255,255,255,0.5);
@@ -338,54 +324,29 @@
    RESPONSIVE
 ============================================ */
 @media (max-width: 860px) {
-  .nb-service-row {
+  .nb-step-row {
     grid-template-columns: 60px 1fr auto;
     gap: 1.5rem;
   }
-
-  .nb-service-row__tag {
-    display: none;
-  }
-
-  .nb-service-row__ghost {
-    font-size: 5rem;
-    right: 1.5rem;
-  }
+  .nb-step-row__tag { display: none; }
+  .nb-step-row__ghost { font-size: 5rem; right: 1.5rem; }
 }
 
 @media (max-width: 600px) {
-  .nb-services__intro {
-    padding: 5rem 1.5rem 3rem;
-  }
-
-  .nb-services__list {
-    padding: 0 1.5rem 2rem;
-  }
-
-  .nb-service-row {
+  .nb-hiw__intro { padding: 5rem 1.5rem 3rem; }
+  .nb-hiw__list { padding: 0 1.5rem 2rem; }
+  .nb-step-row {
     grid-template-columns: 50px 1fr auto;
     gap: 1rem;
     padding: 1.8rem 0.5rem;
   }
-
-  .nb-service-row__arrow {
-    display: none;
-  }
-
-  .nb-services__cta-inner {
+  .nb-step-row__arrow { display: none; }
+  .nb-hiw__cta-inner {
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
     padding: 3rem 1.5rem;
   }
-
-  .nb-services__cta-actions {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .nb-services__btn {
-    width: 100%;
-    text-align: center;
-  }
+  .nb-hiw__cta-actions { width: 100%; flex-direction: column; }
+  .nb-hiw__btn { width: 100%; text-align: center; }
 }

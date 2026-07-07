@@ -9,45 +9,37 @@
   --amber:        #D4920A;
   --amber-light:  #F5C842;
   --cream:        #FEFCF5;
-  --stone:        #6B6455;
+  --cream-deep:   #F3EEE3;
+  --muted:        #6B6455;
   --rule:         #E2DDD4;
-  --card-bg:      #FFFFFF;
+  --white:        #FFFFFF;
 }
 
 /* ============================================
-   HERO SHELL
+   HERO SHELL — light, split layout
 ============================================ */
 .nb-hero {
-  position: relative;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 5rem 6vw;
+  background: var(--cream);
   font-family: 'Outfit', sans-serif;
+  padding: 5rem 6vw 4rem;
+}
+
+.nb-hero__inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  align-items: center;
+  gap: 4vw;
 }
 
 /* ============================================
-   CONTENT CARD
+   LEFT — CONTENT
 ============================================ */
-.nb-hero__card {
-  position: relative;
-  z-index: 2;
-  background: var(--card-bg);
-  width: 100%;
-  max-width: 490px;
-  padding: 3rem 3rem 2.5rem;
-  border-left: 4px solid var(--amber);
-
-  /* entry animation */
-  animation: cardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+.nb-hero__content {
+  animation: fadeUp 0.6s ease both;
 }
 
-/* ============================================
-   EYEBROW
-============================================ */
 .nb-hero__eyebrow {
   display: flex;
   align-items: center;
@@ -56,9 +48,8 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--stone);
+  color: var(--muted);
   margin-bottom: 1.6rem;
-  animation: fadeUp 0.5s 0.15s ease both;
 }
 
 .nb-hero__eyebrow-line {
@@ -69,9 +60,6 @@
   flex-shrink: 0;
 }
 
-/* ============================================
-   TITLE
-============================================ */
 .nb-hero__title {
   font-family: 'Fraunces', serif;
   font-size: clamp(2.6rem, 4.5vw, 3.6rem);
@@ -80,7 +68,6 @@
   color: var(--forest);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
-  animation: fadeUp 0.5s 0.22s ease both;
 }
 
 .nb-hero__title-accent {
@@ -88,28 +75,21 @@
   font-style: italic;
 }
 
-/* ============================================
-   DESCRIPTION
-============================================ */
 .nb-hero__description {
   font-size: 0.95rem;
   line-height: 1.85;
-  color: var(--stone);
+  color: var(--muted);
   font-weight: 300;
   margin-bottom: 2.2rem;
-  animation: fadeUp 0.5s 0.3s ease both;
+  max-width: 440px;
 }
 
-/* ============================================
-   BUTTONS
-============================================ */
 .nb-hero__actions {
   display: flex;
   align-items: center;
   gap: 1.2rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
-  animation: fadeUp 0.5s 0.38s ease both;
 }
 
 .nb-btn {
@@ -126,7 +106,6 @@
   background: var(--forest);
   color: var(--cream);
   padding: 0.85rem 2rem;
-  border-radius: 0;
   text-transform: uppercase;
 }
 
@@ -140,7 +119,6 @@
   padding: 0;
   border-bottom: 1.5px solid var(--forest);
   padding-bottom: 2px;
-  border-radius: 0;
   text-transform: uppercase;
 }
 
@@ -149,24 +127,15 @@
   border-color: var(--amber);
 }
 
-/* ============================================
-   DIVIDER
-============================================ */
 .nb-hero__divider {
   height: 1px;
   background: var(--rule);
   margin-bottom: 1.6rem;
-  animation: fadeUp 0.5s 0.44s ease both;
 }
 
-/* ============================================
-   STATS
-============================================ */
 .nb-hero__stats {
   display: flex;
   align-items: center;
-  gap: 0;
-  animation: fadeUp 0.5s 0.5s ease both;
 }
 
 .nb-hero__stat {
@@ -188,7 +157,7 @@
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--stone);
+  color: var(--muted);
   font-weight: 500;
 }
 
@@ -201,23 +170,75 @@
 }
 
 /* ============================================
-   BOTTOM-RIGHT LIVE BADGE
+   RIGHT — VISUAL
 ============================================ */
+.nb-hero__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.7s 0.15s ease both;
+}
+
+/* Add/replace inside your existing hero.css */
+.nb-hero__badge {
+  max-width: 260px;
+}
+
+@media (max-width: 480px) {
+  .nb-hero__badge {
+    max-width: 200px;
+    font-size: 0.6rem;
+  }
+}
+
+/* decorative shape behind the image */
+.nb-hero__shape {
+  position: absolute;
+  top: 6%;
+  right: 4%;
+  width: 88%;
+  height: 88%;
+  background: var(--amber-light);
+  opacity: 0.35;
+  border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%;
+  z-index: 0;
+}
+
+.nb-hero__image-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px -20px rgba(21, 46, 30, 0.25);
+  border: 6px solid var(--white);
+}
+
+.nb-hero__image {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+/* floating badge over the image, bottom-left */
 .nb-hero__badge {
   position: absolute;
-  bottom: 2.5rem;
-  right: 6vw;
+  bottom: 1.5rem;
+  left: -1.5rem;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   background: var(--forest);
   color: var(--cream);
-  font-family: 'Outfit', sans-serif;
   font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
-  padding: 0.65rem 1.2rem;
-  animation: fadeUp 0.6s 0.6s ease both;
+  letter-spacing: 0.04em;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px -8px rgba(21, 46, 30, 0.4);
 }
 
 .nb-hero__badge-dot {
@@ -232,14 +253,14 @@
 /* ============================================
    ANIMATIONS
 ============================================ */
-@keyframes cardIn {
-  from { opacity: 0; transform: translateX(-30px); }
-  to   { opacity: 1; transform: translateX(0); }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 @keyframes pulse {
@@ -251,50 +272,37 @@
    RESPONSIVE
 ============================================ */
 @media (max-width: 900px) {
-  .nb-hero {
-    background-position: center center;
-    padding: 3rem 1.5rem 5rem;
-    align-items: flex-end;
+  .nb-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .nb-hero__card {
-    max-width: 100%;
-    padding: 2.2rem 1.8rem 2rem;
+  .nb-hero__visual {
+    order: -1;
   }
 
-  .nb-hero__title {
-    font-size: clamp(2.2rem, 9vw, 3rem);
+  .nb-hero__image {
+    height: 320px;
   }
 
   .nb-hero__badge {
-    right: 1.5rem;
-    bottom: 1.5rem;
-    font-size: 0.65rem;
+    left: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .nb.hero{
-    padding: 2rem 1rem 4rem;
+  .nb-hero {
+    padding: 3rem 1.2rem 3rem;
   }
 
-   .nb-hero__card {
-    padding: 1.8rem 1.5rem 1.8rem;
+  .nb-hero__title {
+    font-size: clamp(2rem, 10vw, 2.6rem);
   }
 
-   .nb-hero__title {
-    font-size: clamp(1.8rem, 10vw, 2.6rem);
+  .nb-hero__image {
+    height: 240px;
   }
 
-   .nb-hero__description {
-    font-size: 0.9rem;
-  }
-
-   .nb-hero__badge {
-    right: 1rem;
-    bottom: 1rem;
-    font-size: 0.6rem;
-  }
   .nb-hero__actions {
     flex-direction: column;
     align-items: flex-start;
@@ -307,5 +315,12 @@
 
   .nb-hero__stat-sep {
     margin: 0 0.8rem;
+  }
+
+  .nb-hero__badge {
+    font-size: 0.62rem;
+    left: 0.5rem;
+    bottom: 0.8rem;
+    padding: 0.55rem 0.9rem;
   }
 }

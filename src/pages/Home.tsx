@@ -1,11 +1,10 @@
 import SEO from "../components/SEO";
 import Hero from "../components/Hero";
-import About from "../components/About";
-import Services from "../components/Services";
-import SupplyChain from "../components/SupplyChain";
-import ImpactMetrics from "../components/ImpactMetrics";
+import Problem from "../components/Problem";
+import HowItWorks from "../components/HowItWorks";
+import Operations from "../components/Operations";
+import BasketTiers from "../components/BasketTiers";
 // import Coverage from "../components/Coverage";
-import ContactFAQ from "../components/ContactFAQ";
 // import Features from "../components/Features";
 // import HowItWorks from "../components/HowItWorks";
 // import Stats from "../components/Stats";
@@ -24,22 +23,20 @@ const Home = () => {
         {/* ── Hero ──────────────────────────────────────────────────────── */}
         <Hero />
 
-        {/* ── About ─────────────────────────────────────────────────────── */}
-        <About />
+        {/* ── Problem ─────────────────────────────────────────────────────── */}
+        <Problem />
 
-        {/* ── Services ──────────────────────────────────────────────────── */}
-        <Services />
+        {/* ── How It Works ──────────────────────────────────────────────── */}
+        <HowItWorks />
 
-        {/* ── Supply Chain ──────────────────────────────────────────────── */}
-        <SupplyChain />
+        {/* ── Operations ──────────────────────────────────────────────── */}
+        <Operations />
 
         {/* ── Impact Metrics ────────────────────────────────────────────── */}
-        <ImpactMetrics />
+        <BasketTiers />
 
         {/* <Coverage /> */}
 
-        {/* ── Contact / FAQ ─────────────────────────────────────────────── */}
-        <ContactFAQ />
 
         {/* Components to be uncommented as they are built:
           <Features />

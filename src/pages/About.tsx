@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import SEO from "../components/SEO";
 import "../styles/aboutpage.css";
-import AboutImg1 from "../assets/truck03.jpeg";
-import AboutImg2 from "../assets/avocado59.jpeg";
-import ImpactImg from "../assets/impact27.jpeg";
+import AboutImg1 from "../assets/mercy25.jpeg";  // Replace with your indigenous farming image
+import AboutImg2 from "../assets/avocado59.jpeg"; // Replace with basket/community image
+import ImpactImg from "../assets/impact27.jpeg";  // Replace with farm/biodiversity image
 
 /* ── Scroll-reveal hook ── */
 const useReveal = (delay = 0) => {
@@ -27,60 +27,85 @@ const useReveal = (delay = 0) => {
   return ref;
 };
 
+/* ── Core Values (from Page 4) ── */
 const VALUES = [
   {
     num: "01",
-    title: "Fairness",
-    desc: "We ensure farmers receive fair compensation by creating transparent, direct market connections that eliminate exploitative intermediaries.",
+    title: "Sustainability",
+    desc: "We champion farming practices that restore ecosystems, protect biodiversity, and ensure food systems can thrive for generations to come.",
   },
   {
     num: "02",
-    title: "Sustainability",
-    desc: "Our systems are designed to minimise waste and environmental impact while maximising long-term economic sustainability for farming communities.",
+    title: "Integrity",
+    desc: "We operate with transparency and fairness — from the prices we pay farmers to the quality we promise our customers.",
   },
   {
     num: "03",
     title: "Innovation",
-    desc: "We continuously evolve our logistics infrastructure using technology and real-time data to improve efficiency and farmer outcomes.",
+    desc: "We continuously improve how we source, package, and deliver indigenous foods, creating new value for farmers and communities.",
   },
   {
     num: "04",
-    title: "Community",
-    desc: "We believe in strengthening farming communities by creating economic opportunities, supporting local networks, and investing in shared infrastructure.",
+    title: "Inclusivity",
+    desc: "We create opportunities for women, youth, and marginalized farming communities to participate fully in the food system.",
+  },
+  {
+    num: "05",
+    title: "Quality",
+    desc: "Every basket that leaves our hands has been inspected, tested, and packed to meet the highest standards of freshness and safety.",
+  },
+  {
+    num: "06",
+    title: "Community Empowerment",
+    desc: "We invest in farmer training, reliable markets, and local leadership to build stronger, more resilient rural communities.",
+  },
+  {
+    num: "07",
+    title: "Environmental Stewardship",
+    desc: "We care for the land by promoting agroecology, conserving indigenous seeds, and reducing food waste at every stage.",
   },
 ];
 
-const IMPACT_METRICS = [
+/* ── Impact Areas (from Page 6) ── */
+const IMPACT_AREAS = [
   {
-    val: "500+",
-    label: "Farmers Onboarded",
-    ctx: "Verified smallholder producers across 12 counties",
+    val: "Fair & Stable",
+    label: "Farmer Incomes",
+    ctx: "Direct market access ensures farmers earn predictable, fair returns for their produce.",
   },
   {
-    val: "40%",
-    label: "Reduction in Food Waste",
-    ctx: "Measured against pre-network baseline across partner farms",
+    val: "Better",
+    label: "Nutrition",
+    ctx: "Indigenous foods are nutrient-dense — we make them accessible to households and institutions.",
   },
   {
-    val: "25%",
-    label: "Avg. Income Increase",
-    ctx: "For farmers in the network vs. non-network peers",
+    val: "Biodiversity",
+    label: "Conservation",
+    ctx: "By growing and marketing indigenous crops, we help preserve seeds and ecosystems.",
   },
   {
-    val: "12",
-    label: "Counties Covered",
-    ctx: "With active logistics routes and aggregation points",
+    val: "Climate",
+    label: "Resilience",
+    ctx: "Agroecological practices and diversified sourcing reduce vulnerability to climate shocks.",
+  },
+  {
+    val: "Reduced",
+    label: "Food Waste",
+    ctx: "Direct farm-to-basket model cuts post-harvest losses and ensures produce reaches tables.",
   },
 ];
 
+/* ── Partner Categories (from Page 7) ── 
 const PARTNERS = [
-  "Seed Savers Network Kenya",
-  "Seed Savers Network Kenya",
-  "Seed Savers Network Kenya",
-  "Farm to Feed",
-  "Seed Savers Network Kenya",
-  "Seed Savers Network Kenya",
-];
+  "Development Organizations",
+  "Government Agencies",
+  "NGOs",
+  "Supermarkets",
+  "Hotels & Restaurants",
+  "Schools & Hospitals",
+  "Research Institutions",
+  "Farmer Cooperatives",
+];*/
 
 const AboutPage = () => {
   /* ── Section reveals ── */
@@ -91,23 +116,26 @@ const AboutPage = () => {
   const r5 = useReveal(0);
   const r6 = useReveal(0);
 
-  /* ── Values row reveals — hooks must be declared at top level, not inside map ── */
+  /* ── Values row reveals ── */
   const vr0 = useReveal(0 * 80);
   const vr1 = useReveal(1 * 80);
   const vr2 = useReveal(2 * 80);
   const vr3 = useReveal(3 * 80);
-  const valueRefs = [vr0, vr1, vr2, vr3];
+  const vr4 = useReveal(4 * 80);
+  const vr5 = useReveal(5 * 80);
+  const vr6 = useReveal(6 * 80);
+  const valueRefs = [vr0, vr1, vr2, vr3, vr4, vr5, vr6];
 
-  /* ── Impact metric reveals ── */
+  /* ── Impact reveals ── */
   const mr0 = useReveal(0 * 80);
   const mr1 = useReveal(1 * 80);
   const mr2 = useReveal(2 * 80);
   const mr3 = useReveal(3 * 80);
-  const metricRefs = [mr0, mr1, mr2, mr3];
+  const mr4 = useReveal(4 * 80);
+  const metricRefs = [mr0, mr1, mr2, mr3, mr4];
 
   return (
     <>
-      {/* ✅ SEO: hoisted into <head> via react-helmet-async */}
       <SEO page="about" />
 
       <div className="ap">
@@ -116,25 +144,19 @@ const AboutPage = () => {
           <div className="ap-hero__tex" />
           <div className="ap-hero__inner">
             <nav className="ap-bread" aria-label="Breadcrumb">
-              <NavLink to="/native-bounty-frontend" className="ap-bread__link">
-                Home
-              </NavLink>
-              <span className="ap-bread__sep" aria-hidden="true">
-                /
-              </span>
-              <span className="ap-bread__cur" aria-current="page">
-                About
-              </span>
+              <NavLink to="/" className="ap-bread__link">Home</NavLink>
+              <span className="ap-bread__sep" aria-hidden="true">/</span>
+              <span className="ap-bread__cur" aria-current="page">About</span>
             </nav>
-            {/* ✅ SEO: h1 mirrors the about page preset title theme */}
             <h1 className="ap-hero__h">
-              We move food.
-              <br />
-              <em>We move farmers.</em>
+              Growing Indigenous<br />
+              Foods. <em>Nourishing<br />
+              Communities.</em>
             </h1>
             <p className="ap-hero__sub">
-              Building the agricultural logistics infrastructure Kenya's farming
-              communities deserve.
+              We connect smallholder farmers directly with households and institutions
+              through a subscription basket model — fresh, healthy, indigenous produce
+              that creates fair markets and preserves biodiversity.
             </p>
           </div>
           <div className="ap-hero__edge" />
@@ -151,15 +173,13 @@ const AboutPage = () => {
                 Our Mission
               </span>
               <h2 className="ap-mv__h ap-mv__h--lt">
-                To revolutionise
-                <br />
-                <em>agricultural supply chains.</em>
+                To empower<br />
+                <em>farming communities.</em>
               </h2>
               <p className="ap-mv__body ap-mv__body--lt">
-                We create efficient, transparent, and sustainable logistics
-                systems that directly connect farmers to markets — ensuring fair
-                compensation and eliminating food waste at every link in the
-                chain.
+                We produce, add value to, and market indigenous foods while improving
+                nutrition, protecting biodiversity, and creating sustainable livelihoods
+                for smallholder farmers.
               </p>
             </div>
           </div>
@@ -172,14 +192,13 @@ const AboutPage = () => {
                 Our Vision
               </span>
               <h2 className="ap-mv__h">
-                A world where every
-                <br />
-                <em>farmer has a market.</em>
+                Kenya's leading<br />
+                <em>indigenous food enterprise.</em>
               </h2>
               <p className="ap-mv__body">
-                Every farmer with reliable market access. Food reaching
-                consumers with minimal waste. Agricultural communities thriving
-                through sustainable economic growth and dignified livelihoods.
+                To connect biodiversity conservation with profitable, climate-resilient
+                agriculture — making indigenous foods a cornerstone of Kenya's food
+                future.
               </p>
             </div>
           </div>
@@ -193,29 +212,35 @@ const AboutPage = () => {
                 <span className="ap-ey-line" />
                 Our Story
               </span>
-              {/* ✅ SEO: blockquote is semantically correct for pull-quotes */}
               <blockquote className="ap-story__pull">
-                "Born from witnessing firsthand what happens when a harvest has
-                no road to market."
+                "Every basket delivered represents more than fresh food — it represents
+                a family whose harvest has found a market."
               </blockquote>
               <div className="ap-story__rule" aria-hidden="true" />
-              <p className="ap-story__attr">— Native Bounty, founded 2018</p>
+              <p className="ap-story__attr">— Native Bounty</p>
             </div>
             <div className="ap-story__right">
               <p>
-                Native Bounty was born from witnessing firsthand the challenges
-                smallholder farmers face in getting their produce to market
-                efficiently. Our founders spent years working with farming
-                communities and saw how much food was lost between harvest and
-                market due to inadequate logistics infrastructure.
+                Long before supermarkets lined our streets, Kenyan families relied on
+                indigenous foods grown in their own communities. These crops nourished
+                generations, preserved biodiversity, and sustained livelihoods.
               </p>
               <p>
-                In 2018, we started with a simple pilot connecting 50 farmers to
-                3 local markets. Today, we serve over 500 farmers across 12
-                counties, with plans to grow further. Our journey has been
-                guided by the conviction that sustainable agriculture requires
-                not just good farming — it requires efficient, honest, reliable
-                market connections.
+                Yet today, many of these nutritious foods are disappearing — while the
+                farmers who grow them struggle to find reliable markets.
+              </p>
+              <p>
+                Native Bounty was born from a simple belief: our indigenous foods
+                deserve a place on every table, and the farmers who grow them deserve
+                fair, dependable markets. We partner with smallholder farmers who
+                cultivate indigenous vegetables, fruits, herbs, and traditional crops
+                using sustainable practices — and we bring that harvest directly to
+                households and institutions through our basket subscriptions.
+              </p>
+              <p>
+                By choosing Native Bounty, you become part of a movement to restore
+                indigenous foods, strengthen local farmers, and build a more sustainable
+                food system for Kenya.
               </p>
             </div>
           </div>
@@ -223,22 +248,20 @@ const AboutPage = () => {
 
         {/* ══ CONTENT BLOCKS ══ */}
         <div className="ap-blocks">
-          {/* Block 1 — image left */}
+          {/* Block 1 — Farmer Partnerships */}
           <div className="ap-block">
             <div className="ap-block__visual">
-              {/* ✅ SEO: descriptive alt text for image search */}
               <img
                 src={AboutImg1}
-                alt="Native Bounty farm logistics operations — coordinated transport and produce aggregation in Kenya"
+                alt="Smallholder farmers growing indigenous vegetables for Native Bounty"
                 loading="lazy"
                 decoding="async"
               />
               <div className="ap-block__vis-card">
-                <strong>60%</strong>
+                <strong>Fair</strong>
                 <span>
-                  avg. reduction in
-                  <br />
-                  post-harvest loss
+                  markets &<br />
+                  stable incomes
                 </span>
               </div>
             </div>
@@ -247,45 +270,41 @@ const AboutPage = () => {
                 <span className="ap-block__chnum">01</span>
                 <span className="ap-block__chrule" aria-hidden="true" />
               </div>
-              <h2 className="ap-block__title">Bridging the Logistics Gap</h2>
+              <h2 className="ap-block__title">From Farm to Basket</h2>
               <p>
-                Smallholder farmers face fragmented supply chains, delayed
-                transport, and unpredictable market access. Native Bounty
-                introduces structured aggregation, coordinated transport
-                scheduling, and transparent delivery tracking to close that gap.
+                We work directly with organized farmer groups who grow indigenous
+                vegetables, fruits, herbs, and root crops. By aggregating produce
+                from trained farmers and maintaining strict quality standards, we
+                create a reliable pipeline from the field to your table.
               </p>
               <p>
-                By aligning logistics with harvest cycles and market demand, we
-                reduce post-harvest losses and improve price stability for
-                farmers.
+                This direct relationship means farmers earn fair, stable incomes —
+                and customers receive fresh, nutritious, locally produced food they
+                can trust.
               </p>
-              {/* ✅ SEO: <ul> with meaningful list items are indexed as feature signals */}
-              <ul
-                className="ap-block__pillars"
-                aria-label="Key logistics features"
-              >
+              <ul className="ap-block__pillars" aria-label="Key features">
                 <li>
                   <span className="ap-dot" aria-hidden="true" />
-                  Structured aggregation points
+                  Direct farmer partnerships
                 </li>
                 <li>
                   <span className="ap-dot" aria-hidden="true" />
-                  Real-time delivery tracking
+                  Trained farmer groups
                 </li>
                 <li>
                   <span className="ap-dot" aria-hidden="true" />
-                  Harvest-cycle scheduling
+                  Quality assurance & testing
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Block 2 — image right */}
+          {/* Block 2 — Indigenous Foods & Biodiversity */}
           <div className="ap-block ap-block--flip">
             <div className="ap-block__visual">
               <img
                 src={AboutImg2}
-                alt="Native Bounty produce distribution network — farmers connected to markets across Kenya"
+                alt="Native Bounty's indigenous food basket — fresh vegetables and herbs"
                 loading="lazy"
                 decoding="async"
               />
@@ -295,19 +314,17 @@ const AboutPage = () => {
                 <span className="ap-block__chnum">02</span>
                 <span className="ap-block__chrule" aria-hidden="true" />
               </div>
-              <h2 className="ap-block__title">
-                Building Sustainable Supply Networks
-              </h2>
+              <h2 className="ap-block__title">Preserving Biodiversity, One Basket at a Time</h2>
               <p>
-                Our model integrates farmers, transporters, buyers, and market
-                hubs into a coordinated ecosystem. Through route optimisation
-                and structured aggregation points, we ensure consistency in
-                delivery timelines and product quality.
+                Indigenous crops are more than food — they are living heritage. By
+                creating markets for these crops, we give farmers a reason to keep
+                growing them, conserving seeds and traditional knowledge for future
+                generations.
               </p>
               <p>
-                Native Bounty is not just moving produce — we are building a
-                dependable agricultural logistics infrastructure that supports
-                long-term growth and food system resilience.
+                Our subscription model also supports agroecological farming practices
+                that care for the land, restore ecosystems, and build climate resilience
+                — all while delivering delicious, nutrient-rich food to Kenyan families.
               </p>
             </div>
           </div>
@@ -322,12 +339,10 @@ const AboutPage = () => {
                 Our Values
               </span>
               <h2 className="ap-values__heading">
-                What we stand
-                <br />
+                What we stand<br />
                 <em>for.</em>
               </h2>
             </div>
-            {/* ✅ SEO: hooks called at top level, refs passed by index — no Rules-of-Hooks violation */}
             <div className="ap-values__list">
               {VALUES.map((v, i) => (
                 <div key={v.num} className="ap-vrow reveal" ref={valueRefs[i]}>
@@ -346,7 +361,7 @@ const AboutPage = () => {
 
         {/* ══ IMPACT ══ */}
         <div className="ap-impact">
-          {/* Left — editorial */}
+          {/* Left — editorial dark */}
           <div className="ap-impact__left">
             <div className="ap-impact__tex" />
             <div className="ap-impact__left-inner">
@@ -355,21 +370,18 @@ const AboutPage = () => {
                 Our Impact
               </span>
               <h2 className="ap-impact__h">
-                Numbers
-                <br />
-                that
-                <br />
-                <em>matter.</em>
+                Growing<br />
+                more than<br />
+                <em>food.</em>
               </h2>
               <p className="ap-impact__sub">
-                From Gilgil to Nairobi — every tonne delivered, every farmer
-                paid, every stockout prevented is a link in a stronger food
-                system.
+                Every basket delivers healthier diets, stronger local economies,
+                and farming practices that care for the land.
               </p>
               <div className="ap-impact__img-wrap">
                 <img
                   src={ImpactImg}
-                  alt="Native Bounty's impact on farming communities across Kenya"
+                  alt="Native Bounty's impact — thriving farming communities and biodiversity"
                   loading="lazy"
                   decoding="async"
                 />
@@ -377,16 +389,12 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Right — metrics */}
-          {/* ✅ SEO: <dl> is semantically correct for labeled statistics */}
-          <dl
-            className="ap-impact__right"
-            aria-label="Native Bounty impact statistics"
-          >
-            {IMPACT_METRICS.map((m, i) => (
+          {/* Right — impact areas */}
+          <dl className="ap-impact__right" aria-label="Native Bounty impact areas">
+            {IMPACT_AREAS.map((m, i) => (
               <div
                 key={m.label}
-                className={`ap-impact__metric reveal${i === IMPACT_METRICS.length - 1 ? " ap-impact__metric--last" : ""}`}
+                className={`ap-impact__metric reveal${i === IMPACT_AREAS.length - 1 ? " ap-impact__metric--last" : ""}`}
                 ref={metricRefs[i]}
               >
                 <dd className="ap-impact__mval">{m.val}</dd>
@@ -398,23 +406,19 @@ const AboutPage = () => {
           </dl>
         </div>
 
-        {/* ══ PARTNERS ══ */}
+        {/* ══ PARTNERS ══ 
         <div className="ap-partners">
           <div className="ap-partners__inner">
             <span className="ap-eyebrow ap-eyebrow--centered">
               <span className="ap-ey-line" aria-hidden="true" />
-              Our Partners
+              Partnership Opportunities
               <span className="ap-ey-line" aria-hidden="true" />
             </span>
             <p className="ap-partners__sub">
-              Organisations that share our vision for sustainable agriculture
-              and fair food systems.
+              We're looking for partners who share our vision for food security,
+              nutrition, biodiversity conservation, and sustainable agriculture.
             </p>
-            {/* ✅ SEO: <ul> is correct for a list of partner names */}
-            <ul
-              className="ap-partners__strip"
-              aria-label="Native Bounty partner organisations"
-            >
+            <ul className="ap-partners__strip" aria-label="Native Bounty partner categories">
               {PARTNERS.map((p, i) => (
                 <li key={i} className="ap-partners__item">
                   {p}
@@ -424,14 +428,14 @@ const AboutPage = () => {
           </div>
         </div>
 
-        {/* ══ CTA BANNER ══ */}
+        {/* ══ CTA BANNER ══ 
         <div className="ap-cta">
           <div className="ap-cta__bar" aria-hidden="true" />
           <div className="ap-cta__inner">
             <div>
               <span className="ap-cta__eyebrow">Join the movement</span>
               <h3 className="ap-cta__heading">
-                Ready to build something together?
+                Let's grow something together.
               </h3>
             </div>
             <div className="ap-cta__actions">
@@ -443,15 +447,15 @@ const AboutPage = () => {
                 Partner With Us
               </NavLink>
               <NavLink
-                to="/services"
+                to="/baskets"
                 className="ap-btn ap-btn--ghost"
-                aria-label="Explore Native Bounty's logistics services"
+                aria-label="Explore Native Bounty baskets"
               >
-                Explore Services
+                View Baskets
               </NavLink>
             </div>
-          </div>
         </div>
+          </div>*/}
       </div>
     </>
   );
